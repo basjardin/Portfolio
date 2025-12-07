@@ -1,0 +1,6 @@
+{
+    "scripts": {
+      "sass": "sass --watch ./src/scss/input.scss ./src/css/output.css"
+    }
+  }
+  

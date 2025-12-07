@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.border {
+  border: 1px black solid;
+  padding: 8px;
+}
+
+#acceuil,
+#about,
+#project,
+#contact {
+  min-height: 100vh;
+}
+
+#acceuil {
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+}
+#acceuil .container {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#acceuil .container .boite-acceuil {
+  min-width: 80vw;
+  height: 30%;
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#acceuil .container .description {
+  margin-top: 5%;
+}
+#acceuil button {
+  height: 20%;
+  width: 20%;
+}
+
+#about div {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+#about div .left,
+#about div .right {
+  width: 50%;
+  height: 100%;
+}
+#about div .right {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#about div .right #competences,
+#about div .right #actuellement {
+  width: 100%;
+}
+
+#project .carrousel .contenu .projet {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+#project .carrousel .contenu .projet .titre-projet img {
+  max-width: 300px;
+}
+#project .carrousel .contenu .projet .description-projet {
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  align-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+/*# sourceMappingURL=output.css.map */

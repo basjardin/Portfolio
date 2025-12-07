@@ -1,0 +1,116 @@
+@use "./variabler.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin border() {
+  border: 1px black solid;
+  padding: 8px;
+}
+
+@mixin justify($content: center, $items: center) {
+  justify-content: $content;
+  justify-items: $items;
+}
+
+@mixin align($content: center, $items: center) {
+  align-content: $content;
+  align-items: $items;
+}
+
+.border {
+  @include border;
+}
+
+#acceuil,
+#about,
+#project,
+#contact {
+  min-height: 100vh;
+}
+
+#acceuil {
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  @include justify();
+  align-content: center;
+
+  .container {
+    display: flex;
+    @include justify();
+    @include align();
+    flex-direction: column;
+
+    .boite-acceuil {
+      min-width: 80vw;
+      height: 30%;
+      display: grid;
+      grid-template-rows: 2fr 1fr;
+      @include justify();
+      @include align();
+      flex-direction: column;
+    }
+
+    .description {
+      margin-top: 5%;
+    }
+  }
+
+  button {
+    height: 20%;
+    width: 20%;
+  }
+}
+
+#about {
+  div {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    @include justify();
+
+    .left,
+    .right {
+      width: 50%;
+      height: 100%;
+    }
+
+    .right {
+      display: flex;
+      @include justify();
+      @include align();
+      flex-direction: column;
+
+      #competences,
+      #actuellement {
+        width: 100%;
+      }
+    }
+  }
+}
+
+#project {
+  .carrousel {
+    .contenu {
+      .projet {
+        display: flex;
+        @include justify();
+
+        .titre-projet {
+          img {
+            max-width: 300px;
+          }
+        }
+
+        .description-projet {
+          display: flex;
+          @include justify(space-between);
+          @include align(center, flex-start);
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}
