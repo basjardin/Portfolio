@@ -1,0 +1,91 @@
+@use "./variabler.scss";
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.popup-card {
+  background: white;
+  padding: variabler.$padding8;
+  border-radius: variabler.$border-radius2;
+  box-shadow: variabler.$shadow2;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  transform: translateY(20px) scale(0.9);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  .popup-overlay.active & {
+    transform: translateY(0) scale(1);
+  }
+
+  .icon-container {
+    width: 80px;
+    height: 80px;
+    background: var(--primary);
+    border-radius: 50%;
+    margin: 0 auto variabler.$margin5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+
+    svg {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  h2 {
+    font-size: variabler.$font-size5;
+    margin-bottom: variabler.$margin3;
+    color: var(--primary);
+  }
+
+  p {
+    font-size: variabler.$font-size2;
+    margin-bottom: variabler.$margin6;
+    color: #444;
+    line-height: 1.5;
+  }
+
+  .popup-button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: variabler.$padding3 variabler.$padding8;
+    border-radius: variabler.$border-radius2;
+    font-size: variabler.$font-size2;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+
+    &:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: variabler.$shadow;
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}

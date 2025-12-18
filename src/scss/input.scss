@@ -1,6 +1,7 @@
 @use "sass:map";
 @use "./base.scss";
 @use "./variabler.scss";
+@use "./_popup.scss";
 @font-face {
   font-family: "Funnel Display";
   src: url("../font/Funnel_Display/FunnelDisplay-VariableFont_wght.ttf");
