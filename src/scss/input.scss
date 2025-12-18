@@ -1,1 +1,163 @@
-@use './base.scss';
+@use "sass:map";
+@use "./base.scss";
+@use "./variabler.scss";
+@font-face {
+  font-family: "Funnel Display";
+  src: url("../font/Funnel_Display/FunnelDisplay-VariableFont_wght.ttf");
+}
+
+@mixin truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+body {
+  font-family: "Funnel Display", sans-serif;
+  font-weight: 400;
+}
+
+#btn-prev svg path,
+#btn-next svg path {
+  transition: all 0.3s ease-in-out;
+}
+
+#btn-prev:hover svg path,
+#btn-next:hover svg path {
+  transition: all 0.3s ease-in-out;
+}
+
+.border {
+  box-shadow: variabler.$shadow;
+  border-radius: variabler.$border-radius2;
+  transition: all 0.2s linear;
+
+  &:hover {
+    box-shadow: variabler.$shadow2;
+    transform: translateY(-3px);
+  }
+}
+
+#acceuil {
+  .container {
+    .boite-acceuil {
+      h1 {
+        font-weight: 600;
+        font-size: variabler.$font-size5;
+      }
+      p {
+        font-weight: 400;
+        font-size: variabler.$font-size2;
+      }
+    }
+
+    .description {
+      font-weight: 400;
+      font-size: variabler.$font-size2;
+    }
+  }
+
+  button {
+    margin-top: variabler.$margin12;
+    border: none;
+    font-family: "Funnel Display", sans-serif;
+    font-weight: 400;
+    font-size: variabler.$font-size2;
+
+    &:hover {
+    }
+  }
+}
+
+#about {
+  margin-inline: variabler.$margin16;
+
+  .left {
+    margin: variabler.$margin1;
+    margin-left: variabler.$margin2;
+    padding: variabler.$padding4;
+    h2 {
+      font-weight: 600;
+      font-size: variabler.$font-size6;
+    }
+    p {
+      font-weight: 300;
+      font-size: variabler.$font-size4;
+    }
+  }
+  .right {
+    margin: variabler.$margin1;
+    margin-right: variabler.$margin2;
+    h2 {
+      font-weight: 600;
+      font-size: variabler.$font-size6;
+    }
+    & > div:first-child {
+      margin: variabler.$margin2;
+      padding: variabler.$padding4;
+
+      div {
+        display: flex;
+        flex-wrap: wrap;
+        gap: variabler.$margin2;
+        div {
+          display: flex;
+          gap: variabler.$margin2;
+          padding: variabler.$padding2;
+          align-items: center;
+          width: fit-content;
+          height: fit-content;
+          border-radius: variabler.$border-radius2;
+          background-color: hsl(0, 0%, 95%);
+        }
+      }
+    }
+    & > div:last-child {
+      margin: variabler.$margin2;
+      padding: variabler.$padding4;
+      p {
+        font-weight: 300;
+        font-size: variabler.$font-size3;
+      }
+    }
+  }
+}
+
+#project {
+  .carrousel {
+    .contenu {
+      .projet {
+        padding: variabler.$padding2;
+        margin-block: variabler.$margin3;
+        gap: variabler.$margin2;
+
+        .titre-projet {
+          h2 {
+            @include truncate;
+            font-weight: 600;
+            font-size: variabler.$font-size1;
+          }
+          img {
+          }
+        }
+        .description-projet {
+          a {
+            width: 100%;
+            button {
+              width: 100%;
+              border-radius: variabler.$border-radius1;
+              border: 1px solid var(--theme-text);
+              padding: variabler.$padding2;
+              font-weight: 400;
+              font-size: variabler.$font-size1;
+              font-family: "Funnel Display", sans-serif;
+              transition: all 0.3s ease-in-out;
+              &:hover {
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

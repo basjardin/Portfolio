@@ -1,11 +1,12 @@
+:root {
+  --primary: hsl(216, 88%, 36%);
+  --secondary: hsl(216, 81%, 73%);
+  --accent: hsl(216, 98%, 61%);
+}
+
 * {
   margin: 0;
   padding: 0;
-}
-
-.border {
-  border: 1px black solid;
-  padding: 8px;
 }
 
 #acceuil,
@@ -17,7 +18,7 @@
 
 #acceuil {
   display: grid;
-  grid-template-rows: 2fr 1fr;
+  grid-template-rows: 5fr 2fr;
   justify-content: center;
   justify-items: center;
   align-content: center;
@@ -32,9 +33,9 @@
 }
 #acceuil .container .boite-acceuil {
   min-width: 80vw;
-  height: 30%;
+  height: 50%;
   display: grid;
-  grid-template-rows: 2fr 1fr;
+  gap: 16px;
   justify-content: center;
   justify-items: center;
   align-content: center;
@@ -45,23 +46,112 @@
   margin-top: 5%;
 }
 #acceuil button {
-  height: 20%;
-  width: 20%;
+  height: 25%;
+  width: 25%;
 }
 
-#about div {
-  height: 100vh;
-  width: 100vw;
+#about {
+  height: auto;
+  min-height: 0;
   display: flex;
   justify-content: center;
   justify-items: center;
 }
-#about div .left,
-#about div .right {
+#about .left,
+#about .right {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+#about .right {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#about .right #competences,
+#about .right #actuellement {
+  box-sizing: border-box;
+  width: 100%;
+  height: calc(50% - 8px);
+}
+
+#project .carrousel {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+}
+#project .carrousel .contenu {
+  display: flex;
+  justify-content: flex-start;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+  gap: 16px;
+  margin-inline: 16px;
+}
+#project .carrousel .contenu .projet {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  min-width: 280px;
+  max-width: 280px;
+  width: 280px;
+  min-height: 120px;
+  max-height: 120px;
+  height: 120px;
+}
+@media (min-width: 768px) {
+  #project .carrousel .contenu .projet {
+    min-width: 300px;
+    max-width: 300px;
+    width: 300px;
+    min-height: 150px;
+    max-height: 150px;
+    height: 150px;
+  }
+}
+@media (min-width: 1024px) {
+  #project .carrousel .contenu .projet {
+    min-width: 350px;
+    max-width: 350px;
+    width: 350px;
+    min-height: 180px;
+    max-height: 180px;
+    height: 180px;
+  }
+}
+#project .carrousel .contenu .projet .titre-projet {
+  display: grid;
+  grid-template-rows: auto 1fr;
   width: 50%;
   height: 100%;
 }
-#about div .right {
+#project .carrousel .contenu .projet .titre-projet img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#project .carrousel .contenu .projet .description-projet {
+  box-sizing: border-box;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  align-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+#contact {
   display: flex;
   justify-content: center;
   justify-items: center;
@@ -69,26 +159,160 @@
   align-items: center;
   flex-direction: column;
 }
-#about div .right #competences,
-#about div .right #actuellement {
-  width: 100%;
+#contact h1 {
+  margin-bottom: 2rem;
+}
+#contact .contact-container {
+  width: 80%;
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+#contact .contact-container .contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+#contact .contact-container .contact-item h3 {
+  margin-bottom: 0.5rem;
+}
+#contact .contact-container .contact-item a,
+#contact .contact-container .contact-item p {
+  color: inherit;
+  text-decoration: none;
+}
+#contact .contact-container .contact-item a:hover,
+#contact .contact-container .contact-item p:hover {
+  text-decoration: underline;
+}
+
+@font-face {
+  font-family: "Funnel Display";
+  src: url("../font/Funnel_Display/FunnelDisplay-VariableFont_wght.ttf");
+}
+body {
+  font-family: "Funnel Display", sans-serif;
+  font-weight: 400;
+}
+
+#btn-prev svg path,
+#btn-next svg path {
+  transition: all 0.3s ease-in-out;
+}
+
+#btn-prev:hover svg path,
+#btn-next:hover svg path {
+  transition: all 0.3s ease-in-out;
+}
+
+.border {
+  box-shadow: 0px 2px 2px hsla(0, 0%, 0%, 0.07), 0px 4px 4px hsla(0, 0%, 0%, 0.15);
+  border-radius: 8px;
+  transition: all 0.2s linear;
+}
+.border:hover {
+  box-shadow: 0px 6px 6px hsla(0, 0%, 0%, 0.07), 0px 12px 12px hsla(0, 0%, 0%, 0.15);
+  transform: translateY(-3px);
+}
+
+#acceuil .container .boite-acceuil h1 {
+  font-weight: 600;
+  font-size: calc(1rem + 200%);
+}
+#acceuil .container .boite-acceuil p {
+  font-weight: 400;
+  font-size: calc(1rem + 50%);
+}
+#acceuil .container .description {
+  font-weight: 400;
+  font-size: calc(1rem + 50%);
+}
+#acceuil button {
+  margin-top: 88px;
+  border: none;
+  font-family: "Funnel Display", sans-serif;
+  font-weight: 400;
+  font-size: calc(1rem + 50%);
+}
+#about {
+  margin-inline: 120px;
+}
+#about .left {
+  margin: 4px;
+  margin-left: 8px;
+  padding: 24px;
+}
+#about .left h2 {
+  font-weight: 600;
+  font-size: calc(1rem + 250%);
+}
+#about .left p {
+  font-weight: 300;
+  font-size: calc(1rem + 150%);
+}
+#about .right {
+  margin: 4px;
+  margin-right: 8px;
+}
+#about .right h2 {
+  font-weight: 600;
+  font-size: calc(1rem + 250%);
+}
+#about .right > div:first-child {
+  margin: 8px;
+  padding: 24px;
+}
+#about .right > div:first-child div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+#about .right > div:first-child div div {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 8px;
+  background-color: hsl(0, 0%, 95%);
+}
+#about .right > div:last-child {
+  margin: 8px;
+  padding: 24px;
+}
+#about .right > div:last-child p {
+  font-weight: 300;
+  font-size: calc(1rem + 100%);
 }
 
 #project .carrousel .contenu .projet {
-  display: flex;
-  justify-content: center;
-  justify-items: center;
+  padding: 8px;
+  margin-block: 16px;
+  gap: 8px;
 }
-#project .carrousel .contenu .projet .titre-projet img {
-  max-width: 300px;
+#project .carrousel .contenu .projet .titre-projet h2 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 600;
+  font-size: calc(1rem + 1%);
 }
-#project .carrousel .contenu .projet .description-projet {
-  display: flex;
-  justify-content: space-between;
-  justify-items: center;
-  align-content: center;
-  align-items: flex-start;
-  flex-direction: column;
+#project .carrousel .contenu .projet .description-projet a {
+  width: 100%;
+}
+#project .carrousel .contenu .projet .description-projet a button {
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid var(--theme-text);
+  padding: 8px;
+  font-weight: 400;
+  font-size: calc(1rem + 1%);
+  font-family: "Funnel Display", sans-serif;
+  transition: all 0.3s ease-in-out;
 }
 
 /*# sourceMappingURL=output.css.map */

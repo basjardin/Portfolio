@@ -1,0 +1,78 @@
+$margin1: 4px;
+$margin2: 8px;
+$margin3: 16px;
+$margin4: 24px;
+$margin5: 32px;
+$margin6: 40px;
+$margin7: 48px;
+$margin8: 56px;
+$margin9: 64px;
+$margin10: 72px;
+$margin11: 80px;
+$margin12: 88px;
+$margin13: 96px;
+$margin14: 104px;
+$margin15: 112px;
+$margin16: 120px;
+
+$padding1: 4px;
+$padding2: 8px;
+$padding3: 16px;
+$padding4: 24px;
+$padding5: 32px;
+$padding6: 40px;
+$padding7: 48px;
+$padding8: 56px;
+$padding9: 64px;
+$padding10: 72px;
+$padding11: 80px;
+$padding12: 88px;
+$padding13: 96px;
+$padding14: 104px;
+$padding15: 112px;
+$padding16: 120px;
+
+//shadow
+$shadow: 0px 2px 2px hsla(0, 0%, 0%, 0.07), 0px 4px 4px hsla(0, 0%, 0%, 0.15);
+$shadow2: 0px 6px 6px hsla(0, 0%, 0%, 0.07), 0px 12px 12px hsla(0, 0%, 0%, 0.15);
+
+//color
+
+// @media (prefers-color-scheme: light) {
+:root {
+  --primary: hsl(216, 88%, 36%);
+  --secondary: hsl(216, 81%, 73%);
+  --accent: hsl(216, 98%, 61%);
+}
+// }
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     --text: hsl(216, 33%, 97%);
+//     --background: hsl(206, 47%, 3%);
+//     --primary: hsl(216, 88%, 64%);
+//     --secondary: hsl(216, 81%, 27%);
+//     --accent: hsl(216, 98%, 39%);
+//   }
+// }
+
+//border-radius
+$border-radius1: 4px;
+$border-radius2: 8px;
+
+//font-size
+$font-size1: calc(1rem + 1%);
+$font-size2: calc(1rem + 50%);
+$font-size3: calc(1rem + 100%);
+$font-size4: calc(1rem + 150%);
+$font-size5: calc(1rem + 200%);
+$font-size6: calc(1rem + 250%);
+$font-size7: calc(1rem + 300%);
+$font-size8: calc(1rem + 350%);
+$font-size9: calc(1rem + 400%);
+$font-size10: calc(1rem + 450%);
+$font-size11: calc(1rem + 500%);
+$font-size12: calc(1rem + 550%);
+$font-size13: calc(1rem + 600%);
+$font-size14: calc(1rem + 650%);
+$font-size15: calc(1rem + 700%);
+$font-size16: calc(1rem + 750%);

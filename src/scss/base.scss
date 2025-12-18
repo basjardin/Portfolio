@@ -5,11 +5,6 @@
   padding: 0;
 }
 
-@mixin border() {
-  border: 1px black solid;
-  padding: 8px;
-}
-
 @mixin justify($content: center, $items: center) {
   justify-content: $content;
   justify-items: $items;
@@ -18,10 +13,6 @@
 @mixin align($content: center, $items: center) {
   align-content: $content;
   align-items: $items;
-}
-
-.border {
-  @include border;
 }
 
 #acceuil,
@@ -33,7 +24,7 @@
 
 #acceuil {
   display: grid;
-  grid-template-rows: 2fr 1fr;
+  grid-template-rows: 5fr 2fr;
   @include justify();
   align-content: center;
 
@@ -45,9 +36,9 @@
 
     .boite-acceuil {
       min-width: 80vw;
-      height: 30%;
+      height: 50%;
       display: grid;
-      grid-template-rows: 2fr 1fr;
+      gap: 16px;
       @include justify();
       @include align();
       flex-direction: column;
@@ -59,56 +50,148 @@
   }
 
   button {
-    height: 20%;
-    width: 20%;
+    height: 25%;
+    width: 25%;
   }
 }
 
 #about {
-  div {
-    height: 100vh;
-    width: 100vw;
+  height: auto;
+  min-height: 0;
+  display: flex;
+  @include justify();
+
+  .left,
+  .right {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  .right {
     display: flex;
     @include justify();
-
-    .left,
-    .right {
-      width: 50%;
-      height: 100%;
-    }
-
-    .right {
-      display: flex;
-      @include justify();
-      @include align();
-      flex-direction: column;
-
-      #competences,
-      #actuellement {
-        width: 100%;
-      }
+    @include align();
+    flex-wrap: wrap;
+    #competences,
+    #actuellement {
+      box-sizing: border-box;
+      width: 100%;
+      height: calc(
+        50% - (variabler.$margin2)
+      ); // 50% - (margin-top 4px + margin-bottom 4px = 8px total)
     }
   }
 }
 
 #project {
   .carrousel {
+    display: flex;
+    @include justify();
+    @include align();
+
     .contenu {
+      display: flex;
+      @include justify(flex-start);
+      @include align();
+      width: 100%;
+      overflow: hidden;
+      gap: 16px;
+      margin-inline: 16px;
       .projet {
         display: flex;
         @include justify();
+        flex-shrink: 0; // Empêche les cartes de rétrécir
+        box-sizing: border-box;
 
+        // Mobile (par défaut)
+        min-width: 280px;
+        max-width: 280px;
+        width: 280px;
+        min-height: 120px;
+        max-height: 120px;
+        height: 120px;
+
+        // Tablette (écrans >= 768px)
+        @media (min-width: 768px) {
+          min-width: 300px;
+          max-width: 300px;
+          width: 300px;
+          min-height: 150px;
+          max-height: 150px;
+          height: 150px;
+        }
+
+        // Desktop (écrans >= 1024px)
+        @media (min-width: 1024px) {
+          min-width: 350px;
+          max-width: 350px;
+          width: 350px;
+          min-height: 180px;
+          max-height: 180px;
+          height: 180px;
+        }
         .titre-projet {
+          display: grid;
+          grid-template-rows: auto 1fr; // Titre auto, image prend le reste
+          width: 50%;
+          height: 100%;
+
           img {
-            max-width: 300px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
           }
         }
 
         .description-projet {
+          box-sizing: border-box;
+          width: 50%;
           display: flex;
           @include justify(space-between);
           @include align(center, flex-start);
           flex-direction: column;
+        }
+      }
+    }
+  }
+}
+
+#contact {
+  display: flex;
+  @include justify();
+  @include align();
+  flex-direction: column;
+
+  h1 {
+    margin-bottom: 2rem;
+  }
+
+  .contact-container {
+    width: 80%;
+    max-width: 800px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      h3 {
+        margin-bottom: 0.5rem;
+      }
+
+      a,
+      p {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
         }
       }
     }

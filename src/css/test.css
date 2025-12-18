@@ -1,0 +1,268 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#acceuil,
+#about,
+#project,
+#contact {
+  min-height: 100vh;
+}
+
+#acceuil {
+  display: grid;
+  grid-template-rows: 5fr 2fr;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+}
+#acceuil .container {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#acceuil .container .boite-acceuil {
+  min-width: 80vw;
+  height: 50%;
+  display: grid;
+  gap: 16px;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#acceuil .container .description {
+  margin-top: 5%;
+}
+#acceuil button {
+  height: 25%;
+  width: 25%;
+}
+
+#about {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+#about .left,
+#about .right {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+#about .right {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#about .right #competences,
+#about .right #actuellement {
+  box-sizing: border-box;
+  width: 100%;
+  height: calc(50% - 8px);
+}
+
+#project .carrousel {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+}
+#project .carrousel .contenu {
+  display: flex;
+  justify-content: flex-start;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+  gap: 16px;
+  margin-inline: 16px;
+}
+#project .carrousel .contenu .projet {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  min-width: 280px;
+  max-width: 280px;
+  width: 280px;
+  min-height: 120px;
+  max-height: 120px;
+  height: 120px;
+}
+@media (min-width: 768px) {
+  #project .carrousel .contenu .projet {
+    min-width: 300px;
+    max-width: 300px;
+    width: 300px;
+    min-height: 150px;
+    max-height: 150px;
+    height: 150px;
+  }
+}
+@media (min-width: 1024px) {
+  #project .carrousel .contenu .projet {
+    min-width: 350px;
+    max-width: 350px;
+    width: 350px;
+    min-height: 180px;
+    max-height: 180px;
+    height: 180px;
+  }
+}
+#project .carrousel .contenu .projet .titre-projet {
+  display: flex;
+  justify-content: flex-start;
+  justify-items: center;
+  align-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  width: 50%;
+}
+#project .carrousel .contenu .projet .titre-projet img {
+  max-width: 150px;
+  max-height: 150px;
+  width: 80%;
+  object-fit: cover;
+}
+#project .carrousel .contenu .projet .description-projet {
+  box-sizing: border-box;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  align-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+#contact {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#contact h1 {
+  margin-bottom: 2rem;
+}
+#contact .contact-container {
+  width: 80%;
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+#contact .contact-container .contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+#contact .contact-container .contact-item h3 {
+  margin-bottom: 0.5rem;
+}
+#contact .contact-container .contact-item a,
+#contact .contact-container .contact-item p {
+  color: inherit;
+  text-decoration: none;
+}
+#contact .contact-container .contact-item a:hover,
+#contact .contact-container .contact-item p:hover {
+  text-decoration: underline;
+}
+
+#project .carrousel {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+}
+#project .carrousel .contenu {
+  display: flex;
+  justify-content: flex-start;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+  gap: 16px;
+  margin-inline: 16px;
+}
+#project .carrousel .contenu .projet {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  min-width: 280px;
+  max-width: 280px;
+  width: 280px;
+  min-height: 120px;
+  max-height: 120px;
+  height: 120px;
+}
+@media (min-width: 768px) {
+  #project .carrousel .contenu .projet {
+    min-width: 300px;
+    max-width: 300px;
+    width: 300px;
+    min-height: 150px;
+    max-height: 150px;
+    height: 150px;
+  }
+}
+@media (min-width: 1024px) {
+  #project .carrousel .contenu .projet {
+    min-width: 350px;
+    max-width: 350px;
+    width: 350px;
+    min-height: 180px;
+    max-height: 180px;
+    height: 180px;
+  }
+}
+#project .carrousel .contenu .projet .titre-projet {
+  display: flex;
+  justify-content: flex-start;
+  justify-items: center;
+  align-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  width: 50%;
+}
+#project .carrousel .contenu .projet .titre-projet img {
+  max-width: 150px;
+  max-height: 150px;
+  width: 80%;
+  object-fit: cover;
+}
+#project .carrousel .contenu .projet .description-projet {
+  box-sizing: border-box;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  align-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+/*# sourceMappingURL=test.css.map */
