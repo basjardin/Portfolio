@@ -58,8 +58,11 @@
 #about {
   height: auto;
   min-height: 0;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
   @include justify();
+  gap: variabler.$margin2;
 
   .left,
   .right {
@@ -70,16 +73,14 @@
 
   .right {
     display: flex;
-    @include justify();
-    @include align();
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: variabler.$margin2;
+
     #competences,
     #actuellement {
       box-sizing: border-box;
       width: 100%;
-      height: calc(
-        50% - (variabler.$margin2)
-      ); // 50% - (margin-top 4px + margin-bottom 4px = 8px total)
+      flex: 1;
     }
   }
 }

@@ -53,9 +53,12 @@
 #about {
   height: auto;
   min-height: 0;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
   justify-content: center;
   justify-items: center;
+  gap: 8px;
 }
 #about .left,
 #about .right {
@@ -65,17 +68,14 @@
 }
 #about .right {
   display: flex;
-  justify-content: center;
-  justify-items: center;
-  align-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 8px;
 }
 #about .right #competences,
 #about .right #actuellement {
   box-sizing: border-box;
   width: 100%;
-  height: calc(50% - 8px);
+  flex: 1;
 }
 
 #project .carrousel {
@@ -208,6 +208,7 @@
 .popup-overlay.active {
   opacity: 1;
   visibility: visible;
+  display: none;
 }
 
 .popup-card {
@@ -318,12 +319,11 @@ body {
   font-weight: 400;
   font-size: calc(1rem + 50%);
 }
+
 #about {
-  margin-inline: 120px;
+  margin-inline: 15%;
 }
 #about .left {
-  margin: 4px;
-  margin-left: 8px;
   padding: 24px;
 }
 #about .left h2 {
@@ -334,16 +334,11 @@ body {
   font-weight: 300;
   font-size: calc(1rem + 150%);
 }
-#about .right {
-  margin: 4px;
-  margin-right: 8px;
-}
 #about .right h2 {
   font-weight: 600;
   font-size: calc(1rem + 250%);
 }
 #about .right > div:first-child {
-  margin: 8px;
   padding: 24px;
 }
 #about .right > div:first-child div {
@@ -362,7 +357,6 @@ body {
   background-color: hsl(0, 0%, 95%);
 }
 #about .right > div:last-child {
-  margin: 8px;
   padding: 24px;
 }
 #about .right > div:last-child p {

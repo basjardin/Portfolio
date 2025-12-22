@@ -19,6 +19,8 @@
   &.active {
     opacity: 1;
     visibility: visible;
+    // a modifier si non finit et publier
+    display: none;
   }
 }
 

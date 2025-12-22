@@ -64,18 +64,13 @@ body {
     font-family: "Funnel Display", sans-serif;
     font-weight: 400;
     font-size: variabler.$font-size2;
-
-    &:hover {
-    }
   }
 }
 
 #about {
-  margin-inline: variabler.$margin16;
+  margin-inline: 15%;
 
   .left {
-    margin: variabler.$margin1;
-    margin-left: variabler.$margin2;
     padding: variabler.$padding4;
     h2 {
       font-weight: 600;
@@ -87,14 +82,11 @@ body {
     }
   }
   .right {
-    margin: variabler.$margin1;
-    margin-right: variabler.$margin2;
     h2 {
       font-weight: 600;
       font-size: variabler.$font-size6;
     }
     & > div:first-child {
-      margin: variabler.$margin2;
       padding: variabler.$padding4;
 
       div {
@@ -114,7 +106,6 @@ body {
       }
     }
     & > div:last-child {
-      margin: variabler.$margin2;
       padding: variabler.$padding4;
       p {
         font-weight: 300;
@@ -138,8 +129,6 @@ body {
             font-weight: 600;
             font-size: variabler.$font-size1;
           }
-          img {
-          }
         }
         .description-projet {
           a {
@@ -153,8 +142,6 @@ body {
               font-size: variabler.$font-size1;
               font-family: "Funnel Display", sans-serif;
               transition: all 0.3s ease-in-out;
-              &:hover {
-              }
             }
           }
         }
