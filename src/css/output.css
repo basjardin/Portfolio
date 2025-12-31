@@ -1,7 +1,7 @@
 :root {
-  --primary: hsl(216, 88%, 36%);
-  --secondary: hsl(216, 81%, 73%);
-  --accent: hsl(216, 98%, 61%);
+  --primary: #0d3b66;
+  --secondary: #faf0ca;
+  --accent: #f4d35e;
 }
 
 * {
@@ -78,6 +78,9 @@
   flex: 1;
 }
 
+#project {
+  min-height: 0;
+}
 #project .carrousel {
   display: flex;
   justify-content: center;
@@ -121,9 +124,9 @@
 }
 @media (min-width: 1024px) {
   #project .carrousel .contenu .projet {
-    min-width: 350px;
-    max-width: 350px;
-    width: 350px;
+    min-width: 450px;
+    max-width: 450px;
+    width: 450px;
     min-height: 180px;
     max-height: 180px;
     height: 180px;
@@ -152,6 +155,7 @@
 }
 
 #contact {
+  min-height: 0;
   display: flex;
   justify-content: center;
   justify-items: center;
@@ -165,9 +169,6 @@
 #contact .contact-container {
   width: 80%;
   max-width: 800px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
   padding: 2rem;
 }
 #contact .contact-container .contact-item {
@@ -208,11 +209,10 @@
 .popup-overlay.active {
   opacity: 1;
   visibility: visible;
-  display: none;
 }
 
 .popup-card {
-  background: white;
+  background: var(--accent);
   padding: 56px;
   border-radius: 8px;
   box-shadow: 0px 6px 6px hsla(0, 0%, 0%, 0.07), 0px 12px 12px hsla(0, 0%, 0%, 0.15);
@@ -263,7 +263,6 @@
   font-family: inherit;
 }
 .popup-card .popup-button:hover {
-  background: var(--accent);
   transform: translateY(-2px);
   box-shadow: 0px 2px 2px hsla(0, 0%, 0%, 0.07), 0px 4px 4px hsla(0, 0%, 0%, 0.15);
 }
@@ -278,6 +277,8 @@
 body {
   font-family: "Funnel Display", sans-serif;
   font-weight: 400;
+  background-color: var(--secondary);
+  color: var(--primary);
 }
 
 #btn-prev svg path,
@@ -293,13 +294,15 @@ body {
 .border {
   box-shadow: 0px 2px 2px hsla(0, 0%, 0%, 0.07), 0px 4px 4px hsla(0, 0%, 0%, 0.15);
   border-radius: 8px;
-  transition: all 0.2s linear;
-}
-.border:hover {
-  box-shadow: 0px 6px 6px hsla(0, 0%, 0%, 0.07), 0px 12px 12px hsla(0, 0%, 0%, 0.15);
-  transform: translateY(-3px);
 }
 
+#acceuil {
+  background-color: var(--secondary);
+}
+#acceuil .container .boite-acceuil {
+  background-color: var(--accent);
+  color: var(--primary);
+}
 #acceuil .container .boite-acceuil h1 {
   font-weight: 600;
   font-size: calc(1rem + 200%);
@@ -310,43 +313,58 @@ body {
 }
 #acceuil .container .description {
   font-weight: 400;
+  line-height: 1.5;
   font-size: calc(1rem + 50%);
+  text-align: center;
+  color: var(--primary);
 }
 #acceuil button {
-  margin-top: 88px;
   border: none;
   font-family: "Funnel Display", sans-serif;
   font-weight: 400;
   font-size: calc(1rem + 50%);
+  transition: all 0.3s ease-in-out;
+  background-color: var(--primary);
+  color: var(--accent);
+  cursor: pointer;
+}
+#acceuil button:hover {
+  box-shadow: 0px 6px 6px hsla(0, 0%, 0%, 0.07), 0px 12px 12px hsla(0, 0%, 0%, 0.15);
+  transform: translateY(-3px);
 }
 
 #about {
-  margin-inline: 15%;
+  padding-inline: 15%;
+  background-color: var(--secondary);
+  color: var(--primary);
 }
 #about .left {
+  background-color: var(--accent);
   padding: 24px;
 }
 #about .left h2 {
   font-weight: 600;
-  font-size: calc(1rem + 250%);
+  font-size: calc(1rem + 200%);
 }
 #about .left p {
   font-weight: 300;
-  font-size: calc(1rem + 150%);
+  font-size: calc(1rem + 75%);
 }
 #about .right h2 {
   font-weight: 600;
-  font-size: calc(1rem + 250%);
+  font-size: calc(1rem + 200%);
 }
 #about .right > div:first-child {
-  padding: 24px;
+  background-color: var(--accent);
+  padding: 8px;
 }
-#about .right > div:first-child div {
+#about .right > div:first-child #competences-list {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
-#about .right > div:first-child div div {
+#about .right > div:first-child #competences-list .competence-item {
+  position: relative;
   display: flex;
   gap: 8px;
   padding: 8px;
@@ -355,39 +373,161 @@ body {
   height: fit-content;
   border-radius: 8px;
   background-color: hsl(0, 0%, 95%);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+#about .right > div:first-child #competences-list .competence-item:hover {
+  box-shadow: 0px 6px 6px hsla(0, 0%, 0%, 0.07), 0px 12px 12px hsla(0, 0%, 0%, 0.15);
+  transform: translateY(-3px);
+}
+#about .right > div:first-child #competences-list .competence-item:hover::after, #about .right > div:first-child #competences-list .competence-item:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+#about .right > div:first-child #competences-list .competence-item:hover::after {
+  transform: translateX(-50%) translateY(-10px);
+}
+#about .right > div:first-child #competences-list .competence-item:hover::before {
+  transform: translateX(-50%) translateY(-2px);
+}
+#about .right > div:first-child #competences-list .competence-item::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  border-width: 6px;
+  border-style: solid;
+  border-color: var(--primary) transparent transparent transparent;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 100;
+  pointer-events: none;
+}
+#about .right > div:first-child #competences-list .competence-item::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  background-color: var(--primary);
+  color: var(--accent);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  pointer-events: none;
+  box-shadow: 0px 6px 6px hsla(0, 0%, 0%, 0.07), 0px 12px 12px hsla(0, 0%, 0%, 0.15);
+  z-index: 100;
 }
 #about .right > div:last-child {
+  background-color: var(--accent);
   padding: 24px;
 }
 #about .right > div:last-child p {
   font-weight: 300;
-  font-size: calc(1rem + 100%);
+  font-size: calc(1rem + 75%);
 }
 
-#project .carrousel .contenu .projet {
+#project {
+  color: var(--primary);
+  width: 80vw;
+  margin-inline: auto;
+  margin-top: 40px;
+}
+#project h2 {
+  font-weight: 600;
+  font-size: calc(1rem + 250%);
+}
+#project h3 {
+  font-weight: 500;
+  font-size: calc(1rem + 100%);
+  margin: 24px;
+}
+#project .carrousel #btn-prev,
+#project .carrousel #btn-next {
+  cursor: pointer;
+}
+#project .carrousel #btn-prev svg path,
+#project .carrousel #btn-next svg path {
+  fill: var(--accent);
+}
+#project .carrousel #btn-prev:hover svg path,
+#project .carrousel #btn-next:hover svg path {
+  fill: var(--primary);
+}
+#project .contenu .projet {
+  background-color: var(--accent);
   padding: 8px;
   margin-block: 16px;
-  gap: 8px;
+  gap: 24px;
 }
-#project .carrousel .contenu .projet .titre-projet h2 {
+#project .contenu .projet .titre-projet h4 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: 600;
-  font-size: calc(1rem + 1%);
+  font-size: calc(1rem + 50%);
 }
-#project .carrousel .contenu .projet .description-projet a {
+#project .contenu .projet .description-projet p {
+  font-weight: 300;
+  font-size: calc(1rem + 25%);
+}
+#project .contenu .projet .description-projet a {
   width: 100%;
 }
-#project .carrousel .contenu .projet .description-projet a button {
+#project .contenu .projet .description-projet a button {
   width: 100%;
   border-radius: 4px;
   border: 1px solid var(--theme-text);
   padding: 8px;
   font-weight: 400;
-  font-size: calc(1rem + 1%);
+  font-size: calc(1rem + 25%);
   font-family: "Funnel Display", sans-serif;
   transition: all 0.3s ease-in-out;
+  background-color: var(--primary);
+  color: var(--accent);
+  cursor: pointer;
+}
+#project .contenu .projet .description-projet a button:hover {
+  box-shadow: 0px 6px 6px hsla(0, 0%, 0%, 0.07), 0px 12px 12px hsla(0, 0%, 0%, 0.15);
+  transform: translateY(-3px);
+}
+
+#contact {
+  margin-block: 120px;
+}
+#contact h2 {
+  margin-block: 40px;
+  font-size: calc(1rem + 200%);
+}
+#contact .contact-container {
+  background-color: var(--accent);
+  gap: 24px;
+}
+#contact .contact-container .contact-item h4 {
+  margin-top: 24px;
+  font-weight: 600;
+  font-size: calc(1rem + 50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+#contact .contact-container .contact-item h4 svg {
+  width: 40px;
+  height: 40px;
+}
+#contact .contact-container .contact-item h4 svg path {
+  fill: var(--primary);
+}
+#contact .contact-container .contact-item a {
+  font-weight: 400;
+  font-size: calc(1rem + 25%);
 }
 
 /*# sourceMappingURL=output.css.map */

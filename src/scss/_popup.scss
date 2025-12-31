@@ -19,13 +19,11 @@
   &.active {
     opacity: 1;
     visibility: visible;
-    // a modifier si non finit et publier
-    display: none;
   }
 }
 
 .popup-card {
-  background: white;
+  background: var(--accent);
   padding: variabler.$padding8;
   border-radius: variabler.$border-radius2;
   box-shadow: variabler.$shadow2;
@@ -81,7 +79,6 @@
     font-family: inherit;
 
     &:hover {
-      background: var(--accent);
       transform: translateY(-2px);
       box-shadow: variabler.$shadow;
     }

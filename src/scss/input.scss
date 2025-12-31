@@ -16,6 +16,8 @@
 body {
   font-family: "Funnel Display", sans-serif;
   font-weight: 400;
+  background-color: var(--secondary);
+  color: var(--primary);
 }
 
 #btn-prev svg path,
@@ -31,17 +33,14 @@ body {
 .border {
   box-shadow: variabler.$shadow;
   border-radius: variabler.$border-radius2;
-  transition: all 0.2s linear;
-
-  &:hover {
-    box-shadow: variabler.$shadow2;
-    transform: translateY(-3px);
-  }
 }
 
 #acceuil {
+  background-color: var(--secondary);
   .container {
     .boite-acceuil {
+      background-color: var(--accent);
+      color: var(--primary);
       h1 {
         font-weight: 600;
         font-size: variabler.$font-size5;
@@ -54,46 +53,62 @@ body {
 
     .description {
       font-weight: 400;
+      line-height: 1.5;
       font-size: variabler.$font-size2;
+      text-align: center;
+      color: var(--primary);
     }
   }
 
   button {
-    margin-top: variabler.$margin12;
     border: none;
     font-family: "Funnel Display", sans-serif;
     font-weight: 400;
     font-size: variabler.$font-size2;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--primary);
+    color: var(--accent);
+    cursor: pointer;
+    &:hover {
+      box-shadow: variabler.$shadow2;
+      transform: translateY(-3px);
+    }
   }
 }
 
 #about {
-  margin-inline: 15%;
+  padding-inline: 15%;
+  background-color: var(--secondary);
+  color: var(--primary);
 
   .left {
+    background-color: var(--accent);
     padding: variabler.$padding4;
     h2 {
       font-weight: 600;
-      font-size: variabler.$font-size6;
+      font-size: variabler.$font-size5;
     }
     p {
       font-weight: 300;
-      font-size: variabler.$font-size4;
+      font-size: variabler.$font-size2-5;
     }
   }
   .right {
     h2 {
       font-weight: 600;
-      font-size: variabler.$font-size6;
+      font-size: variabler.$font-size5;
     }
     & > div:first-child {
-      padding: variabler.$padding4;
+      background-color: var(--accent);
+      padding: variabler.$padding2;
 
-      div {
+      #competences-list {
         display: flex;
         flex-wrap: wrap;
         gap: variabler.$margin2;
-        div {
+
+        .competence-item {
+          position: relative;
           display: flex;
           gap: variabler.$margin2;
           padding: variabler.$padding2;
@@ -102,49 +117,182 @@ body {
           height: fit-content;
           border-radius: variabler.$border-radius2;
           background-color: hsl(0, 0%, 95%);
+          transition: all 0.3s ease-in-out;
+          cursor: pointer;
+
+          &:hover {
+            box-shadow: variabler.$shadow2;
+            transform: translateY(-3px);
+
+            &::after,
+            &::before {
+              opacity: 1;
+              visibility: visible;
+            }
+            &::after {
+              transform: translateX(-50%) translateY(-10px);
+            }
+            &::before {
+              transform: translateX(-50%) translateY(-2px);
+            }
+          }
+
+          &::before {
+            content: "";
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(0);
+            border-width: 6px;
+            border-style: solid;
+            border-color: var(--primary) transparent transparent transparent;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 100;
+            pointer-events: none;
+          }
+
+          &::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(0);
+            background-color: var(--primary);
+            color: var(--accent);
+            padding: 6px 12px;
+            border-radius: variabler.$border-radius1;
+            font-size: 0.85rem;
+            font-weight: 500;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            pointer-events: none;
+            box-shadow: variabler.$shadow2;
+            z-index: 100;
+          }
         }
       }
     }
     & > div:last-child {
+      background-color: var(--accent);
       padding: variabler.$padding4;
       p {
         font-weight: 300;
-        font-size: variabler.$font-size3;
+        font-size: variabler.$font-size2-5;
       }
     }
   }
 }
 
 #project {
+  color: var(--primary);
+  width: 80vw;
+  margin-inline: auto;
+  margin-top: variabler.$margin6;
+  h2 {
+    font-weight: 600;
+    font-size: variabler.$font-size6;
+  }
+  h3 {
+    font-weight: 500;
+    font-size: variabler.$font-size3;
+    margin: variabler.$margin4;
+  }
   .carrousel {
-    .contenu {
-      .projet {
-        padding: variabler.$padding2;
-        margin-block: variabler.$margin3;
-        gap: variabler.$margin2;
-
-        .titre-projet {
-          h2 {
-            @include truncate;
-            font-weight: 600;
-            font-size: variabler.$font-size1;
+    #btn-prev,
+    #btn-next {
+      cursor: pointer;
+      svg {
+        path {
+          fill: var(--accent);
+        }
+      }
+      &:hover {
+        svg {
+          path {
+            fill: var(--primary);
           }
         }
-        .description-projet {
-          a {
+      }
+    }
+  }
+
+  .contenu {
+    .projet {
+      background-color: var(--accent);
+      padding: variabler.$padding2;
+      margin-block: variabler.$margin3;
+      gap: variabler.$margin4;
+
+      .titre-projet {
+        h4 {
+          @include truncate;
+          font-weight: 600;
+          font-size: variabler.$font-size2;
+        }
+      }
+      .description-projet {
+        p {
+          font-weight: 300;
+          font-size: variabler.$font-size1-5;
+        }
+        a {
+          width: 100%;
+          button {
             width: 100%;
-            button {
-              width: 100%;
-              border-radius: variabler.$border-radius1;
-              border: 1px solid var(--theme-text);
-              padding: variabler.$padding2;
-              font-weight: 400;
-              font-size: variabler.$font-size1;
-              font-family: "Funnel Display", sans-serif;
-              transition: all 0.3s ease-in-out;
+            border-radius: variabler.$border-radius1;
+            border: 1px solid var(--theme-text);
+            padding: variabler.$padding2;
+            font-weight: 400;
+            font-size: variabler.$font-size1-5;
+            font-family: "Funnel Display", sans-serif;
+            transition: all 0.3s ease-in-out;
+            background-color: var(--primary);
+            color: var(--accent);
+            cursor: pointer;
+
+            &:hover {
+              box-shadow: variabler.$shadow2;
+              transform: translateY(-3px);
             }
           }
         }
+      }
+    }
+  }
+}
+
+#contact {
+  margin-block: variabler.$margin16;
+  h2 {
+    margin-block: variabler.$margin6;
+    font-size: variabler.$font-size5;
+  }
+  .contact-container {
+    background-color: var(--accent);
+    gap: variabler.$margin4;
+    .contact-item {
+      h4 {
+        margin-top: variabler.$margin4;
+        font-weight: 600;
+        font-size: variabler.$font-size2;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        svg {
+          width: 40px;
+          height: 40px;
+          path {
+            fill: var(--primary);
+          }
+        }
+      }
+      a {
+        font-weight: 400;
+        font-size: variabler.$font-size1-5;
       }
     }
   }

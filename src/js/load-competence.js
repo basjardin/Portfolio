@@ -13,11 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (competenceListElement) {
       const projectCard = document.createElement("div");
-      projectCard.classList.add("projet");
+      projectCard.classList.add("competence-item");
+      projectCard.setAttribute("data-tooltip", competence.description);
 
       projectCard.innerHTML = `
                 <img src="${competence.path}" alt="${competence.nom}" width="80px" height="80px" />
-                ${competence.nom}
+                <span>${competence.nom}</span>
             `;
 
       competenceListElement.appendChild(projectCard);

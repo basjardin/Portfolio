@@ -40,9 +40,9 @@ $shadow2: 0px 6px 6px hsla(0, 0%, 0%, 0.07), 0px 12px 12px hsla(0, 0%, 0%, 0.15)
 
 // @media (prefers-color-scheme: light) {
 :root {
-  --primary: hsl(216, 88%, 36%);
-  --secondary: hsl(216, 81%, 73%);
-  --accent: hsl(216, 98%, 61%);
+  --primary: #0d3b66;
+  --secondary: #faf0ca;
+  --accent: #f4d35e;
 }
 // }
 // @media (prefers-color-scheme: dark) {
@@ -61,11 +61,17 @@ $border-radius2: 8px;
 
 //font-size
 $font-size1: calc(1rem + 1%);
+$font-size1-5: calc(1rem + 25%);
 $font-size2: calc(1rem + 50%);
+$font-size2-5: calc(1rem + 75%);
 $font-size3: calc(1rem + 100%);
+$font-size3-5: calc(1rem + 125%);
 $font-size4: calc(1rem + 150%);
+$font-size4-5: calc(1rem + 175%);
 $font-size5: calc(1rem + 200%);
+$font-size5-5: calc(1rem + 225%);
 $font-size6: calc(1rem + 250%);
+$font-size6-5: calc(1rem + 275%);
 $font-size7: calc(1rem + 300%);
 $font-size8: calc(1rem + 350%);
 $font-size9: calc(1rem + 400%);
