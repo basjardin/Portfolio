@@ -1,58 +1,52 @@
 const projectsData = [
   {
     "targetCarouselId": "carousel-1",
-    "title": "Projet Minecraft",
-    "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.QEt9BGMPZVypDRaWXb-0bgHaDt%3Fpid%3DApi&f=1&ipt=c1e1c970002ea41fd0dd92f03b09a58ecccac4b213bebd7586e38f24f45d1cde&ipo=images",
-    "description": "Description du projet 1...",
-    "link": "#"
+    "title": "premier site web",
+    "image": "./src/img/premier-site-web.png",
+    "description": "Mon premier site web, réalisé avec HTML, CSS et JavaScript.",
+    "link": "https://github.com/basjardin/premier_site_web"
   },
   {
     "targetCarouselId": "carousel-1",
-    "title": "Site E-commerce e de ded ed ede d",
-    "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.QEt9BGMPZVypDRaWXb-0bgHaDt%3Fpid%3DApi&f=1&ipt=c1e1c970002ea41fd0dd92f03b09a58ecccac4b213bebd7586e38f24f45d1cde&ipo=images",
-    "description": "Description du projet 2...",
-    "link": "#"
+    "title": "Premier Portfolio",
+    "image": "./src/img/premier portfolio.png",
+    "description": "Mon premier portfolio réalisé avec HTML, CSS et JavaScript.",
+    "link": "https://basjardin.github.io/porfolio/"
   },
   {
     "targetCarouselId": "carousel-1",
-    "title": "Application Mobile",
-    "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.QEt9BGMPZVypDRaWXb-0bgHaDt%3Fpid%3DApi&f=1&ipt=c1e1c970002ea41fd0dd92f03b09a58ecccac4b213bebd7586e38f24f45d1cde&ipo=images",
-    "description": "Description du projet 3...",
-    "link": "#"
-  },
-  {
-    "targetCarouselId": "carousel-1",
-    "title": "Portfolio V1",
-    "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.QEt9BGMPZVypDRaWXb-0bgHaDt%3Fpid%3DApi&f=1&ipt=c1e1c970002ea41fd0dd92f03b09a58ecccac4b213bebd7586e38f24f45d1cde&ipo=images",
-    "description": "Description du projet 4...",
-    "link": "#"
-  },
-    {
-    "targetCarouselId": "carousel-2",
-    "title": "Portfolio V1",
-    "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.QEt9BGMPZVypDRaWXb-0bgHaDt%3Fpid%3DApi&f=1&ipt=c1e1c970002ea41fd0dd92f03b09a58ecccac4b213bebd7586e38f24f45d1cde&ipo=images",
-    "description": "Description du projet 4...",
-    "link": "#"
-  },
-    {
-    "targetCarouselId": "carousel-1",
-    "title": "Portfolio V1",
-    "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.QEt9BGMPZVypDRaWXb-0bgHaDt%3Fpid%3DApi&f=1&ipt=c1e1c970002ea41fd0dd92f03b09a58ecccac4b213bebd7586e38f24f45d1cde&ipo=images",
-    "description": "Description du projet 4...",
-    "link": "#"
+    "title": "Application pour prof bénévole",
+    "image": "./src/img/pas image.png",
+    "description": "Application en PHP pour les professeurs bénévoles pour aider les élèves en difficulté scolaire.",
+    "link": "https://github.com/basjardin/SAE401"
   },
   {
     "targetCarouselId": "carousel-2",
-    "title": "Design UI/UX",
-    "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.QEt9BGMPZVypDRaWXb-0bgHaDt%3Fpid%3DApi&f=1&ipt=c1e1c970002ea41fd0dd92f03b09a58ecccac4b213bebd7586e38f24f45d1cde&ipo=images",
-    "description": "Un projet de design...",
-    "link": "#"
+    "title": "jeux vidéo unity",
+    "image": "./src/img/pas image.png",
+    "description": "premeir jeux vidéo 3D créer sur unity.",
+    "link": "https://github.com/basjardin/Anomalia"
+  },
+  {
+    "targetCarouselId": "carousel-1",
+    "title": "App en codeigniter",
+    "image": "./src/img/pas image.png",
+    "description": "premiere app créer avec codeigniter",
+    "link": "https://github.com/basjardin/reservation"
   },
   {
     "targetCarouselId": "carousel-2",
-    "title": "Logo Concept",
-    "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.QEt9BGMPZVypDRaWXb-0bgHaDt%3Fpid%3DApi&f=1&ipt=c1e1c970002ea41fd0dd92f03b09a58ecccac4b213bebd7586e38f24f45d1cde&ipo=images",
-    "description": "Création d'identité visuelle...",
-    "link": "#"
+    "title": "Autre projet Unity",
+    "image": "./src/img/pas image.png",
+    "description": "Un autre projet de jeux vidéo réalisé avec Unity.",
+    "link": "https://github.com/basjardin/R307-shooter"
+  },
+  
+  {
+    "targetCarouselId": "carousel-1",
+    "title": "curseforge mod award 2025",
+    "image": "./src/img/pas image.png",
+    "description": "site pour voir les mods qu'ont pouvez voter pendant le mod award 2025.",
+    "link": "https://basjardin.github.io/curseforge-mod-award-2025/"
   }
 ];
