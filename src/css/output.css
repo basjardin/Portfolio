@@ -205,7 +205,7 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(8px);
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   z-index: 1000;
@@ -345,32 +345,20 @@ body {
   background-color: var(--secondary);
   color: var(--primary);
 }
-#about .left {
-  background-color: var(--accent);
-  padding: 24px;
-}
 #about .left h2 {
   font-weight: 600;
   font-size: calc(1rem + 200%);
 }
-#about .left p {
-  font-weight: 300;
-  font-size: calc(1rem + 75%);
-}
-#about .right h2 {
-  font-weight: 600;
-  font-size: calc(1rem + 200%);
-}
-#about .right > div:first-child {
+#about .left {
   background-color: var(--accent);
-  padding: 8px;
+  padding: 24px;
 }
-#about .right > div:first-child #competences-list {
+#about .left #competences-list {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
-#about .right > div:first-child #competences-list .competence-item {
+#about .left #competences-list .competence-item {
   position: relative;
   display: flex;
   gap: 8px;
@@ -383,21 +371,21 @@ body {
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
-#about .right > div:first-child #competences-list .competence-item:hover {
+#about .left #competences-list .competence-item:hover {
   box-shadow: 0px 6px 6px hsla(0, 0%, 0%, 0.07), 0px 12px 12px hsla(0, 0%, 0%, 0.15);
   transform: translateY(-3px);
 }
-#about .right > div:first-child #competences-list .competence-item:hover::after, #about .right > div:first-child #competences-list .competence-item:hover::before {
+#about .left #competences-list .competence-item:hover::after, #about .left #competences-list .competence-item:hover::before {
   opacity: 1;
   visibility: visible;
 }
-#about .right > div:first-child #competences-list .competence-item:hover::after {
+#about .left #competences-list .competence-item:hover::after {
   transform: translateX(-50%) translateY(-10px);
 }
-#about .right > div:first-child #competences-list .competence-item:hover::before {
+#about .left #competences-list .competence-item:hover::before {
   transform: translateX(-50%) translateY(-2px);
 }
-#about .right > div:first-child #competences-list .competence-item::before {
+#about .left #competences-list .competence-item::before {
   content: "";
   position: absolute;
   bottom: 100%;
@@ -412,7 +400,7 @@ body {
   z-index: 100;
   pointer-events: none;
 }
-#about .right > div:first-child #competences-list .competence-item::after {
+#about .left #competences-list .competence-item::after {
   content: attr(data-tooltip);
   position: absolute;
   bottom: 100%;
@@ -431,6 +419,22 @@ body {
   pointer-events: none;
   box-shadow: 0px 6px 6px hsla(0, 0%, 0%, 0.07), 0px 12px 12px hsla(0, 0%, 0%, 0.15);
   z-index: 100;
+}
+#about .right h2 {
+  font-weight: 600;
+  font-size: calc(1rem + 200%);
+}
+#about .right > div:first-child {
+  background-color: var(--accent);
+  padding: 24px;
+}
+#about .right > div:first-child h2 {
+  font-weight: 600;
+  font-size: calc(1rem + 200%);
+}
+#about .right > div:first-child p {
+  font-weight: 300;
+  font-size: calc(1rem + 75%);
 }
 #about .right > div:last-child {
   background-color: var(--accent);

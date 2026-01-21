@@ -82,15 +82,85 @@ body {
   color: var(--primary);
 
   .left {
-    background-color: var(--accent);
-    padding: variabler.$padding4;
     h2 {
       font-weight: 600;
       font-size: variabler.$font-size5;
     }
-    p {
-      font-weight: 300;
-      font-size: variabler.$font-size2-5;
+    background-color: var(--accent);
+    padding: variabler.$padding4;
+
+    #competences-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: variabler.$margin2;
+
+      .competence-item {
+        position: relative;
+        display: flex;
+        gap: variabler.$margin2;
+        padding: variabler.$padding2;
+        align-items: center;
+        width: fit-content;
+        height: fit-content;
+        border-radius: variabler.$border-radius2;
+        background-color: hsl(0, 0%, 95%);
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+          box-shadow: variabler.$shadow2;
+          transform: translateY(-3px);
+
+          &::after,
+          &::before {
+            opacity: 1;
+            visibility: visible;
+          }
+          &::after {
+            transform: translateX(-50%) translateY(-10px);
+          }
+          &::before {
+            transform: translateX(-50%) translateY(-2px);
+          }
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: 100%;
+          left: 50%;
+          transform: translateX(-50%) translateY(0);
+          border-width: 6px;
+          border-style: solid;
+          border-color: var(--primary) transparent transparent transparent;
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+          z-index: 100;
+          pointer-events: none;
+        }
+
+        &::after {
+          content: attr(data-tooltip);
+          position: absolute;
+          bottom: 100%;
+          left: 50%;
+          transform: translateX(-50%) translateY(0);
+          background-color: var(--primary);
+          color: var(--accent);
+          padding: 6px 12px;
+          border-radius: variabler.$border-radius1;
+          font-size: 0.85rem;
+          font-weight: 500;
+          white-space: nowrap;
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+          pointer-events: none;
+          box-shadow: variabler.$shadow2;
+          z-index: 100;
+        }
+      }
     }
   }
   .right {
@@ -100,80 +170,14 @@ body {
     }
     & > div:first-child {
       background-color: var(--accent);
-      padding: variabler.$padding2;
-
-      #competences-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: variabler.$margin2;
-
-        .competence-item {
-          position: relative;
-          display: flex;
-          gap: variabler.$margin2;
-          padding: variabler.$padding2;
-          align-items: center;
-          width: fit-content;
-          height: fit-content;
-          border-radius: variabler.$border-radius2;
-          background-color: hsl(0, 0%, 95%);
-          transition: all 0.3s ease-in-out;
-          cursor: pointer;
-
-          &:hover {
-            box-shadow: variabler.$shadow2;
-            transform: translateY(-3px);
-
-            &::after,
-            &::before {
-              opacity: 1;
-              visibility: visible;
-            }
-            &::after {
-              transform: translateX(-50%) translateY(-10px);
-            }
-            &::before {
-              transform: translateX(-50%) translateY(-2px);
-            }
-          }
-
-          &::before {
-            content: "";
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%) translateY(0);
-            border-width: 6px;
-            border-style: solid;
-            border-color: var(--primary) transparent transparent transparent;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            z-index: 100;
-            pointer-events: none;
-          }
-
-          &::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%) translateY(0);
-            background-color: var(--primary);
-            color: var(--accent);
-            padding: 6px 12px;
-            border-radius: variabler.$border-radius1;
-            font-size: 0.85rem;
-            font-weight: 500;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            pointer-events: none;
-            box-shadow: variabler.$shadow2;
-            z-index: 100;
-          }
-        }
+      padding: variabler.$padding4;
+      h2 {
+        font-weight: 600;
+        font-size: variabler.$font-size5;
+      }
+      p {
+        font-weight: 300;
+        font-size: variabler.$font-size2-5;
       }
     }
     & > div:last-child {
