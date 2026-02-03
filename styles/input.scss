@@ -1,10 +1,10 @@
-@use "sass:map";
 @use "./base.scss";
 @use "./variabler.scss";
 @use "./_popup.scss";
+
 @font-face {
   font-family: "Funnel Display";
-  src: url("../font/Funnel_Display/FunnelDisplay-VariableFont_wght.ttf");
+  src: url("/font/Funnel_Display/FunnelDisplay-VariableFont_wght.ttf");
 }
 
 @mixin truncate {
@@ -16,35 +16,60 @@
 body {
   font-family: "Funnel Display", sans-serif;
   font-weight: 400;
-  background-color: var(--secondary);
-  color: var(--primary);
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
-#btn-prev svg path,
-#btn-next svg path {
+.carrousel .btn-prev,
+.carrousel .btn-next {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.carrousel .btn-prev svg path,
+.carrousel .btn-next svg path {
   transition: all 0.3s ease-in-out;
 }
 
-#btn-prev:hover svg path,
-#btn-next:hover svg path {
+.carrousel .btn-prev:hover svg path,
+.carrousel .btn-next:hover svg path {
   transition: all 0.3s ease-in-out;
 }
 
-.border {
+.shadow {
   box-shadow: variabler.$shadow;
   border-radius: variabler.$border-radius2;
 }
 
+.border {
+  border: 1px solid var(--border);
+  border-radius: variabler.$border-radius2;
+}
+
+main {
+  padding-bottom: 120px;
+}
+
 #acceuil {
-  background-color: var(--secondary);
+  z-index: 1;
+  position: relative;
+
   .container {
     .boite-acceuil {
-      background-color: var(--accent);
-      color: var(--primary);
+      background-color: var(--card);
+
       h1 {
         font-weight: 600;
         font-size: variabler.$font-size5;
       }
+
       p {
         font-weight: 400;
         font-size: variabler.$font-size2;
@@ -56,7 +81,6 @@ body {
       line-height: 1.5;
       font-size: variabler.$font-size2;
       text-align: center;
-      color: var(--primary);
     }
   }
 
@@ -66,27 +90,32 @@ body {
     font-weight: 400;
     font-size: variabler.$font-size2;
     transition: all 0.3s ease-in-out;
-    background-color: var(--primary);
-    color: var(--accent);
+    background-color: var(--popover);
+    color: var(--popover-foreground);
     cursor: pointer;
+
     &:hover {
       box-shadow: variabler.$shadow2;
       transform: translateY(-3px);
+      background-color: var(--popover-foreground);
+      color: var(--popover);
     }
   }
 }
 
 #about {
-  padding-inline: 15%;
-  background-color: var(--secondary);
-  color: var(--primary);
+  z-index: 2;
+  position: relative;
+  padding-inline: 10vw;
+
 
   .left {
     h2 {
       font-weight: 600;
       font-size: variabler.$font-size5;
     }
-    background-color: var(--accent);
+
+    background-color: var(--card);
     padding: variabler.$padding4;
 
     #competences-list {
@@ -103,7 +132,7 @@ body {
         width: fit-content;
         height: fit-content;
         border-radius: variabler.$border-radius2;
-        background-color: hsl(0, 0%, 95%);
+        background-color: var(--popover);
         transition: all 0.3s ease-in-out;
         cursor: pointer;
 
@@ -116,9 +145,11 @@ body {
             opacity: 1;
             visibility: visible;
           }
+
           &::after {
             transform: translateX(-50%) translateY(-10px);
           }
+
           &::before {
             transform: translateX(-50%) translateY(-2px);
           }
@@ -132,7 +163,7 @@ body {
           transform: translateX(-50%) translateY(0);
           border-width: 6px;
           border-style: solid;
-          border-color: var(--primary) transparent transparent transparent;
+          border-color: var(--border) transparent transparent transparent;
           opacity: 0;
           visibility: hidden;
           transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -146,8 +177,8 @@ body {
           bottom: 100%;
           left: 50%;
           transform: translateX(-50%) translateY(0);
-          background-color: var(--primary);
-          color: var(--accent);
+          background-color: var(--accent);
+          color: var(--accent-foreground);
           padding: 6px 12px;
           border-radius: variabler.$border-radius1;
           font-size: 0.85rem;
@@ -163,121 +194,85 @@ body {
       }
     }
   }
+
   .right {
     h2 {
       font-weight: 600;
       font-size: variabler.$font-size5;
     }
-    & > div:first-child {
-      background-color: var(--accent);
+
+    &>div:first-child {
+      background-color: var(--card);
       padding: variabler.$padding4;
+
       h2 {
         font-weight: 600;
         font-size: variabler.$font-size5;
       }
+
       p {
         font-weight: 300;
-        font-size: variabler.$font-size2-5;
+        font-size: variabler.$font-size1-5;
       }
     }
-    & > div:last-child {
-      background-color: var(--accent);
+
+    &>div:last-child {
+      background-color: var(--card);
       padding: variabler.$padding4;
+
       p {
         font-weight: 300;
-        font-size: variabler.$font-size2-5;
+        font-size: variabler.$font-size1-5;
       }
     }
   }
 }
 
 #project {
-  color: var(--primary);
   width: 80vw;
   margin-inline: auto;
   margin-top: variabler.$margin6;
+
   h2 {
     font-weight: 600;
     font-size: variabler.$font-size6;
   }
+
   h3 {
     font-weight: 500;
     font-size: variabler.$font-size3;
     margin: variabler.$margin4;
   }
-  .carrousel {
-    #btn-prev,
-    #btn-next {
-      cursor: pointer;
-      svg {
-        path {
-          fill: var(--accent);
-        }
-      }
-      &:hover {
-        svg {
-          path {
-            fill: var(--primary);
-          }
-        }
-      }
+
+  button {
+    background-color: var(--popover);
+    color: var(--popover-foreground);
+
+    &:hover {
+      background-color: var(--popover-foreground);
+      color: var(--popover);
     }
   }
 
-  .contenu {
-    .projet {
-      background-color: var(--accent);
-      padding: variabler.$padding2;
-      margin-block: variabler.$margin3;
-      gap: variabler.$margin4;
-
-      .titre-projet {
-        h4 {
-          @include truncate;
-          font-weight: 600;
-          font-size: variabler.$font-size2;
-        }
-      }
-      .description-projet {
-        p {
-          font-weight: 300;
-          font-size: variabler.$font-size1-5;
-        }
-        a {
-          width: 100%;
-          button {
-            width: 100%;
-            border-radius: variabler.$border-radius1;
-            border: 1px solid var(--theme-text);
-            padding: variabler.$padding2;
-            font-weight: 400;
-            font-size: variabler.$font-size1-5;
-            font-family: "Funnel Display", sans-serif;
-            transition: all 0.3s ease-in-out;
-            background-color: var(--primary);
-            color: var(--accent);
-            cursor: pointer;
-
-            &:hover {
-              box-shadow: variabler.$shadow2;
-              transform: translateY(-3px);
-            }
-          }
-        }
-      }
-    }
+  .bg-card {
+    background-color: var(--card);
   }
 }
 
 #contact {
-  margin-block: variabler.$margin16;
+  z-index: 1;
+  position: relative;
+  margin-top: variabler.$margin16;
+
   h2 {
     margin-block: variabler.$margin6;
     font-size: variabler.$font-size5;
   }
+
   .contact-container {
-    background-color: var(--accent);
+    background-color: var(--card);
     gap: variabler.$margin4;
+
     .contact-item {
       h4 {
         margin-top: variabler.$margin4;
@@ -286,14 +281,17 @@ body {
         display: flex;
         align-items: center;
         gap: 8px;
+
         svg {
           width: 40px;
           height: 40px;
+
           path {
-            fill: var(--primary);
+            fill: var(--popover-foreground);
           }
         }
       }
+
       a {
         font-weight: 400;
         font-size: variabler.$font-size1-5;

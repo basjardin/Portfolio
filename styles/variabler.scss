@@ -32,34 +32,12 @@ $padding14: 104px;
 $padding15: 112px;
 $padding16: 120px;
 
-//shadow
 $shadow: 0px 2px 2px hsla(0, 0%, 0%, 0.07), 0px 4px 4px hsla(0, 0%, 0%, 0.15);
 $shadow2: 0px 6px 6px hsla(0, 0%, 0%, 0.07), 0px 12px 12px hsla(0, 0%, 0%, 0.15);
 
-//color
-
-// @media (prefers-color-scheme: light) {
-:root {
-  --primary: #0d3b66;
-  --secondary: #faf0ca;
-  --accent: #f4d35e;
-}
-// }
-// @media (prefers-color-scheme: dark) {
-//   :root {
-//     --text: hsl(216, 33%, 97%);
-//     --background: hsl(206, 47%, 3%);
-//     --primary: hsl(216, 88%, 64%);
-//     --secondary: hsl(216, 81%, 27%);
-//     --accent: hsl(216, 98%, 39%);
-//   }
-// }
-
-//border-radius
 $border-radius1: 4px;
 $border-radius2: 8px;
 
-//font-size
 $font-size1: calc(1rem + 1%);
 $font-size1-5: calc(1rem + 25%);
 $font-size2: calc(1rem + 50%);
