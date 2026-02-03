@@ -1,6 +1,7 @@
 import { projectsData } from "@/data/projects";
 import Carousel from "./Carousel";
 import Image from "next/image";
+import { assetPath } from "@/lib/utils";
 import { Lens } from "./ui/lens";
 import {
   Card,
@@ -31,7 +32,7 @@ function ProjectCard({
       <div className="h-[240px] relative overflow-hidden bg-muted transition-colors">
         <Lens zoomFactor={2} className="h-full w-full">
           <Image
-            src={image}
+            src={assetPath(image)}
             alt={title}
             fill
             className="object-cover opacity-90 transition-opacity hover:opacity-100"

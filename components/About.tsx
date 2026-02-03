@@ -1,5 +1,6 @@
 import { competenceData } from "@/data/competences";
 import Image from "next/image";
+import { assetPath } from "@/lib/utils";
 
 export default function About() {
   return (
@@ -14,7 +15,7 @@ export default function About() {
               data-tooltip={competence.description}
             >
               <Image
-                src={competence.path}
+                src={assetPath(competence.path)}
                 alt={competence.nom}
                 width={80}
                 height={80}

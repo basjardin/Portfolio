@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react"
 import { renderToString } from "react-dom/server"
+import { assetPath } from "@/lib/utils"
 
 interface Icon {
   x: number
@@ -60,7 +61,7 @@ export function IconCloud({ icons, images }: IconCloudProps) {
           // Handle image URLs directly
           const img = new Image()
           img.crossOrigin = "anonymous"
-          img.src = items[index] as string
+          img.src = assetPath(items[index] as string)
           img.onload = () => {
             offCtx.clearRect(0, 0, offscreen.width, offscreen.height)
 
