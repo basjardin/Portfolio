@@ -55,13 +55,11 @@
   }
 
   h2 {
-    font-size: variabler.$font-size5;
     margin-bottom: variabler.$margin3;
     color: var(--primary);
   }
 
   p {
-    font-size: variabler.$font-size2;
     margin-bottom: variabler.$margin6;
     color: #444;
     line-height: 1.5;
@@ -73,7 +71,7 @@
     border: none;
     padding: variabler.$padding3 variabler.$padding8;
     border-radius: variabler.$border-radius2;
-    font-size: variabler.$font-size2;
+
     cursor: pointer;
     transition: all 0.3s ease;
     font-family: inherit;

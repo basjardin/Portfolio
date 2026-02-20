@@ -2,11 +2,6 @@
 @use "./variabler.scss";
 @use "./_popup.scss";
 
-@font-face {
-  font-family: "Funnel Display";
-  src: url("/Portfolio/font/Funnel_Display/FunnelDisplay-VariableFont_wght.ttf");
-}
-
 @mixin truncate {
   white-space: nowrap;
   overflow: hidden;
@@ -14,10 +9,34 @@
 }
 
 body {
-  font-family: "Funnel Display", sans-serif;
+  font-family: var(--font-funnel), sans-serif;
   font-weight: 400;
   background-color: var(--background);
   color: var(--foreground);
+  overflow-x: hidden;
+}
+
+html {
+  overflow-x: hidden;
+
+  /* Largeur totale de la scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Fond de la scrollbar */
+  ::-webkit-scrollbar-track {
+    background-color: var(--accent);
+  }
+
+  /* Le "thumb" (la partie qui bouge) */
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom,
+        var(--accent) 3%,
+        var(--goodblue) 15%);
+    border-radius: 10px;
+  }
+
 }
 
 .carrousel .btn-prev,
@@ -67,28 +86,34 @@ main {
 
       h1 {
         font-weight: 600;
-        font-size: variabler.$font-size5;
       }
 
       p {
         font-weight: 400;
-        font-size: variabler.$font-size2;
+
+        @media screen and (max-width: 400px) {
+          margin-top: 2%;
+          margin-inline: 8px;
+        }
       }
     }
 
     .description {
       font-weight: 400;
       line-height: 1.5;
-      font-size: variabler.$font-size2;
       text-align: center;
+
+      @media screen and (max-width: 600px) {
+        margin-top: 2%;
+        margin-inline: 8px;
+      }
     }
   }
 
   button {
     border: none;
-    font-family: "Funnel Display", sans-serif;
+    font-family: var(--font-funnel), sans-serif;
     font-weight: 400;
-    font-size: variabler.$font-size2;
     transition: all 0.3s ease-in-out;
     background-color: var(--popover);
     color: var(--popover-foreground);
@@ -112,7 +137,6 @@ main {
   .left {
     h2 {
       font-weight: 600;
-      font-size: variabler.$font-size5;
     }
 
     background-color: var(--card);
@@ -191,6 +215,16 @@ main {
           box-shadow: variabler.$shadow2;
           z-index: 100;
         }
+
+        img {
+          width: 80px;
+          height: 80px;
+
+          @media screen and (max-width: 650px) {
+            width: 8vw;
+            height: 8vw;
+          }
+        }
       }
     }
   }
@@ -198,7 +232,6 @@ main {
   .right {
     h2 {
       font-weight: 600;
-      font-size: variabler.$font-size5;
     }
 
     &>div:first-child {
@@ -207,12 +240,10 @@ main {
 
       h2 {
         font-weight: 600;
-        font-size: variabler.$font-size5;
       }
 
       p {
         font-weight: 300;
-        font-size: variabler.$font-size1-5;
       }
     }
 
@@ -222,7 +253,20 @@ main {
 
       p {
         font-weight: 300;
-        font-size: variabler.$font-size1-5;
+      }
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    grid-template-columns: 1fr;
+
+    @media screen and (max-width: 600px) {
+      padding-inline: 0;
+
+      #competences-list,
+      #competences,
+      #actuellement {
+        border-radius: 0;
       }
     }
   }
@@ -235,12 +279,10 @@ main {
 
   h2 {
     font-weight: 600;
-    font-size: variabler.$font-size6;
   }
 
   h3 {
     font-weight: 500;
-    font-size: variabler.$font-size3;
     margin: variabler.$margin4;
   }
 
@@ -257,6 +299,19 @@ main {
   .bg-card {
     background-color: var(--card);
   }
+
+  @media screen and (max-width: 420px) {
+    margin-inline: 0;
+    width: 100%;
+
+    h2 {
+      margin-inline: 0;
+    }
+
+    h3 {
+      margin-inline: 8px;
+    }
+  }
 }
 
 #contact {
@@ -266,7 +321,6 @@ main {
 
   h2 {
     margin-block: variabler.$margin6;
-    font-size: variabler.$font-size5;
   }
 
   .contact-container {
@@ -277,7 +331,6 @@ main {
       h4 {
         margin-top: variabler.$margin4;
         font-weight: 600;
-        font-size: variabler.$font-size2;
         display: flex;
         align-items: center;
         gap: 8px;
@@ -294,7 +347,19 @@ main {
 
       a {
         font-weight: 400;
-        font-size: variabler.$font-size1-5;
+      }
+    }
+  }
+
+  @media screen and (max-width: 420px) {
+    .contact-container {
+      margin-inline: 0;
+      width: 100%;
+      border-radius: 0;
+
+
+      .contact-item a {
+        text-decoration: underline;
       }
     }
   }

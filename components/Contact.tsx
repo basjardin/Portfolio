@@ -1,10 +1,10 @@
 export default function Contact() {
   return (
     <section id="contact">
-      <h2>Me contacter</h2>
+      <h2 className="text-3xl md:text-4xl">Me contacter</h2>
       <div className="contact-container border">
         <div className="contact-item">
-          <h4>
+          <h4 className="text-lg">
             Email
             <svg
               viewBox="0 0 24 24"
@@ -21,12 +21,12 @@ export default function Contact() {
               </g>
             </svg>
           </h4>
-          <a href="mailto:basjardinrobin@gmail.com">
+          <a className="text-base" href="mailto:basjardinrobin@gmail.com">
             basjardinrobin@gmail.com
           </a>
         </div>
         <div className="contact-item">
-          <h4>
+          <h4 className="text-lg">
             LinkedIn
             <svg
               viewBox="0 0 24 24"
@@ -56,6 +56,7 @@ export default function Contact() {
             </svg>
           </h4>
           <a
+            className="text-base"
             href="https://www.linkedin.com/in/robin-basjardin-développeur"
             target="_blank"
             rel="noopener noreferrer"
@@ -64,7 +65,7 @@ export default function Contact() {
           </a>
         </div>
         <div className="contact-item">
-          <h4>
+          <h4 className="text-lg">
             GitHub
             <svg
               viewBox="0 0 24 24"
@@ -84,6 +85,7 @@ export default function Contact() {
             </svg>
           </h4>
           <a
+            className="text-base"
             href="https://github.com/basjardin"
             target="_blank"
             rel="noopener noreferrer"

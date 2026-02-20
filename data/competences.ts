@@ -18,6 +18,12 @@ export const competenceData: Competence[] = [
       "Ajoute de l'interaction (boutons, calculs, animations) aux sites.",
   },
   {
+    nom: "TypeScript",
+    path: "/icons/typescript.svg",
+    description:
+      "Ajoute du typage à JavaScript pour éviter les erreurs.",
+  },
+  {
     nom: "CSS",
     path: "/icons/css.svg",
     description: "Sert à définir les couleurs, les polices et la mise en page.",
@@ -62,6 +68,18 @@ export const competenceData: Competence[] = [
     path: "/icons/react.svg",
     description:
       "Outil pour construire des interfaces fluides et rapides pour l'utilisateur.",
+  },
+  {
+    nom: "Next",
+    path: "/icons/next.svg",
+    description:
+      "Outil pour construire des sites web rapides et fluides.",
+  },
+  {
+    nom: "Wordpress",
+    path: "/icons/wordpress.svg",
+    description:
+      "Outil pour construire des sites web facilement et rapidement.",
   },
 ];
 

@@ -9,8 +9,7 @@ import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 export default function Home() {
   return (
     <>
-      <AnimatedThemeToggler style={{ position: "fixed", top: "2rem", right: "2rem", zIndex: 100, cursor: "pointer", padding: "1rem", borderRadius: "50%", border: "2px solid var(--border)", background: "var(--background)", boxShadow: "0px 2px 2px hsla(0, 0%, 0%, 0.07), 0px 4px 4px hsla(0, 0%, 0%, 0.15)" }} />
-      <ScrollProgress />
+      <AnimatedThemeToggler className="fixed top-4 right-4 md:top-8 md:right-8 z-100 cursor-pointer p-4 rounded-full border-2 border-(--border) bg-(--background) shadow-md" />
       <main className="relative">
         <Accueil />
         <About />

@@ -22,12 +22,14 @@ export function ScrollProgress({
     <motion.div
       ref={ref}
       className={cn(
-        "fixed inset-x-0 top-0 z-50 h-px origin-left bg-gradient-to-r from-[#A97CF8] via-[#F38CB8] to-[#FDCC92]",
+        "fixed inset-y-0 right-1 z-50 h-px origin-top",
         className
       )}
       style={{
-        scaleX: scrollYProgress,
-        height: "5px",
+        scaleY: scrollYProgress,
+        width: "7px",
+        height: "100%",
+        background: "linear-gradient(to bottom, var(--accent) 5%, var(--goodblue) 25%)",
       }}
       {...props}
     />
