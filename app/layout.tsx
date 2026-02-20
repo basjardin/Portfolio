@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import "@/styles/globals.css";
 import "@/styles/input.scss";
 
+const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 export const metadata: Metadata = {
   title: "Robin Basjardin - Développeur Web",
   description:
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
       "Portfolio de Robin Basjardin, développeur web junior. Projets, compétences et contact.",
   },
   icons: {
-    icon: "/Portfolio/icons/Robin.svg",
+    icon: `${base}/icons/Robin.svg`,
   },
 };
 
