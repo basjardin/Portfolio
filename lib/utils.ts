@@ -10,11 +10,15 @@ export function cn(...inputs: ClassValue[]) {
  * This is needed for GitHub Pages deployment where basePath is set
  */
 export function assetPath(path: string): string {
-  // For GitHub Pages, we need to include the repository name in the path only in production
+  // Construct correct path accounting for basePath on GitHub Pages
   const isProd = process.env.NODE_ENV === 'production';
   const basePath = isProd ? '/Portfolio' : '';
-  // Ensure path starts with /
+  // Ensure path starts with '/'
   const normalizedPath = path.startsWith('/') ? path : `/${path}`;
+  // Avoid double-prefixing if the path already contains the basePath
+  if (isProd && normalizedPath.startsWith(basePath)) {
+    return normalizedPath;
+  }
   return `${basePath}${normalizedPath}`;
 }
 
