@@ -13,7 +13,7 @@ export const metadata: Metadata = {
       "Portfolio de Robin Basjardin, développeur web junior. Projets, compétences et contact.",
   },
   icons: {
-    icon: "/icons/Robin.svg",
+    icon: "/Portfolio/icons/Robin.svg",
   },
 };
 
