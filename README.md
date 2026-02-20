@@ -8,7 +8,7 @@ Bienvenue sur le dépôt GitHub de mon portfolio en ligne ! Ce site présente me
 
 ## 👨‍💻 À propos de moi
 
-Salut ! Je suis **[Ton Nom]**, un passionné de développement web. Ce portfolio est une vitrine de mon travail et de mon évolution. J'aime créer des interfaces fluides, modernes et centrées sur l'utilisateur.
+Salut ! Je suis **Robin basjardin**, un passionné de développement web. Ce portfolio est une vitrine de mon travail et de mon évolution. J'aime créer des interfaces fluides, modernes et centrées sur l'utilisateur.
 
 ## 🛠️ Technologies utilisées
 
@@ -28,14 +28,14 @@ Pour ce projet, j'ai utilisé les technologies suivantes :
 
 ## 📸 Aperçu du site
 
-![Aperçu du Portfolio](https://via.placeholder.com/800x400?text=Capture+d'écran+de+ton+site) 
-*(Astuce : Remplace ce lien par une capture d'écran de ton site hébergée sur GitHub)*
-
+![Aperçu du Portfolio] 
+<img width="1725" height="951" alt="2026-02-20 19 39 32 basjardin github io 8291b88bd116" src="https://github.com/user-attachments/assets/e4d22884-0716-40c5-859e-49c661d8ac32" />
 ---
 
 ## 🚀 Installation locale
 
 Si vous souhaitez explorer le code localement, suivez ces étapes :
+
 
 1.  **Cloner le dépôt :**
     ```bash
@@ -55,7 +55,7 @@ Si vous souhaitez explorer le code localement, suivez ces étapes :
 Je suis toujours ouvert aux opportunités et aux collaborations !
 
 - **LinkedIn :** [Ton Profil LinkedIn](https://www.linkedin.com/in/ton-profil/)
-- **Email :** [Ton adresse email]
+- **Email :** [Ton adresse email](basjardinrobin@gmail.com)
 - **Portfolio :** [https://basjardin.github.io/Portfolio/](https://basjardin.github.io/Portfolio/)
 
 ---
