@@ -10,12 +10,12 @@ export default function Home() {
   return (
     <>
       <AnimatedThemeToggler className="fixed top-4 right-4 md:top-8 md:right-8 z-100 cursor-pointer p-4 rounded-full border-2 border-(--border) bg-(--background) shadow-md" />
+      <ProgressiveBlur position="bottom" height="100px" className="fixed! bottom-0 inset-x-0" />
       <main className="relative">
         <Accueil />
         <About />
         <Projects />
         <Contact />
-        <ProgressiveBlur position="bottom" height="100px" className="sticky bottom-0" />
       </main>
     </>
   );
