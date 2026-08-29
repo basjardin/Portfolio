@@ -1,12 +1,13 @@
+# 📌 Portfolio utilisé pour ma recherche de stage (Février - Avril 2026)
+
+---
+
 # 🚀 Mon Portfolio Personnel
 Bienvenue sur le dépôt GitHub de mon portfolio en ligne ! Ce site présente mes projets, mes compétences techniques et mon parcours en tant que développeur.
 🔗 **Lien vers le site en direct :** [https://basjardin.github.io/Portfolio/](https://basjardin.github.io/Portfolio/)
 ---
 ## 👨‍💻 À propos de moi
 Salut ! Je suis **Robin basjardin**, un passionné de développement web. Ce portfolio est une vitrine de mon travail et de mon évolution. J'aime créer des interfaces fluides, modernes et centrées sur l'utilisateur.
-
-📌 *Ce portfolio a été utilisé dans le cadre de ma recherche de stage entre février et avril 2026.*
-
 ## 🛠️ Technologies utilisées
 Pour ce projet, j'ai utilisé les technologies suivantes :
 * **Frontend :** HTML5, CSS3, JavaScript (ES6+)
