@@ -7,11 +7,11 @@ import { assetPath } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Robin Basjardin - Développeur Web",
   description:
-    "Portfolio de Robin Basjardin, développeur web junior. Projets, compétences et contact.",
+    "Portfolio de Robin Basjardin, développeur web front-end et back-end en Normandie. Diplômé du BUT MMI et certifié Opquast. Parcours, projets, compétences et contact.",
   openGraph: {
     title: "Robin Basjardin - Développeur Web",
     description:
-      "Portfolio de Robin Basjardin, développeur web junior. Projets, compétences et contact.",
+      "Portfolio de Robin Basjardin, développeur web front-end et back-end en Normandie. Diplômé du BUT MMI et certifié Opquast. Parcours, projets, compétences et contact.",
   },
   icons: {
     icon: assetPath("/icons/Robin.svg"),

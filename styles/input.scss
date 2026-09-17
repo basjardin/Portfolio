@@ -72,6 +72,13 @@ html {
   border-radius: variabler.$border-radius2;
 }
 
+// Les logos Next et Unity sont noirs : on les inverse en thème sombre pour
+// qu'ils restent lisibles sur le fond.
+.dark #competences-list img[alt="Next"],
+.dark #competences-list img[alt="Unity"] {
+  filter: invert(1);
+}
+
 main {
   padding-bottom: 120px;
 }
@@ -268,6 +275,53 @@ main {
       #actuellement {
         border-radius: 0;
       }
+    }
+  }
+}
+
+#parcours {
+  z-index: 2;
+  position: relative;
+
+  h2 {
+    font-weight: 600;
+    margin-bottom: variabler.$margin4;
+  }
+
+  .parcours-bloc {
+    background-color: var(--card);
+    padding: variabler.$padding4;
+
+    h3 {
+      font-weight: 500;
+    }
+  }
+
+  .parcours-item {
+    h4 {
+      font-weight: 600;
+    }
+
+    p {
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    .parcours-periode {
+      font-weight: 400;
+      white-space: nowrap;
+      opacity: 0.75;
+    }
+
+    .parcours-lieu {
+      font-weight: 300;
+      opacity: 0.75;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .parcours-bloc {
+      border-radius: 0;
     }
   }
 }

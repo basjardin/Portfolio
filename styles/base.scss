@@ -97,6 +97,57 @@
   }
 }
 
+#parcours {
+  min-height: 0;
+  width: 80vw;
+  margin-inline: auto;
+  margin-top: variabler.$margin6;
+
+  .parcours-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: variabler.$margin4;
+  }
+
+  .parcours-colonne {
+    display: flex;
+    flex-direction: column;
+    gap: variabler.$margin4;
+  }
+
+  .parcours-bloc {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: variabler.$margin4;
+  }
+
+  .parcours-item {
+    display: flex;
+    flex-direction: column;
+    gap: variabler.$margin1;
+
+    .parcours-item-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: variabler.$margin2;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    .parcours-container {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
+}
+
 #project {
   min-height: 0;
   width: 80vw;

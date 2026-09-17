@@ -1,5 +1,6 @@
 import Accueil from "@/components/Accueil";
 import About from "@/components/About";
+import Parcours from "@/components/Parcours";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
@@ -14,6 +15,7 @@ export default function Home() {
       <main className="relative">
         <Accueil />
         <About />
+        <Parcours />
         <Projects />
         <Contact />
       </main>
