@@ -1,0 +1,126 @@
+/* Base du site : couleurs, polices, remise à zéro.
+   À charger en premier, sur toutes les pages. */
+
+/* ---- Jetons ------------------------------------------------ */
+
+:root {
+  /* Fonds */
+  --fond: hsl(228.6, 84%, 4.9%);
+  --surface: hsl(222.9, 48.8%, 8.4%);
+
+  /* Bordures */
+  --bordure-marquee: hsl(215.3, 25%, 26.7%);
+  --bordure-carte: hsl(217.2, 32.6%, 17.5%);
+
+  /* Textes */
+  --texte: hsl(0, 0%, 100%);
+  --texte-secondaire: hsl(215, 20.2%, 65.1%);
+  --texte-discret: hsl(219.5, 17.9%, 58.4%);
+  --annotation: hsl(213.8, 19.2%, 39.8%);
+
+  /* Accent — la seule couleur vive du site, réservée aux actions */
+  --accent: hsl(237.1, 80.4%, 70%);
+  --accent-survol: hsl(236, 82%, 78.2%);
+  --texte-sur-accent: var(--fond);
+
+  /* Technologies : texte, et fond = la teinte à 10 % déjà fondue sur --surface */
+  --tech-orange: hsl(27.6, 73.3%, 66.3%);
+  --tech-fond-orange: hsl(248.6, 9.9%, 13.9%);
+  --tech-bleu: hsl(208.6, 60.9%, 64.9%);
+  --tech-fond-bleu: hsl(218, 41.7%, 14.1%);
+  --tech-jaune: hsl(49.2, 59.4%, 63.3%);
+  --tech-fond-jaune: hsl(214.3, 9.9%, 13.9%);
+  --tech-violet: hsl(248.1, 56.6%, 72%);
+  --tech-fond-violet: hsl(228.5, 34.2%, 14.9%);
+  --tech-pourpre: hsl(273.3, 50.3%, 67.6%);
+  --tech-fond-pourpre: hsl(240, 28.2%, 15.3%);
+  --tech-rouge: hsl(0, 55.6%, 66.5%);
+  --tech-fond-rouge: hsl(258.5, 18.8%, 13.5%);
+  --tech-vert: hsl(146.7, 39.1%, 59.4%);
+  --tech-fond-vert: hsl(203.5, 35.4%, 12.7%);
+  --tech-gris: hsl(213.2, 20.4%, 63.5%);
+  --tech-fond-gris: hsl(221.7, 32.4%, 13.9%);
+  --tech-rose: hsl(308.7, 36.5%, 66.7%);
+  --tech-fond-rose: hsl(243.2, 24.7%, 15.1%);
+  --tech-cyan: hsl(190.5, 60.9%, 64.9%);
+  --tech-fond-cyan: hsl(212, 41.7%, 14.1%);
+
+  /* Typographie */
+  --police-titre: "Funnel Display", system-ui, sans-serif;
+  --police-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* ---- Remise à zéro ----------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Aucun arrondi nulle part : c'est le parti pris du site. */
+* {
+  border-radius: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  /* Les traits pleine largeur ne doivent pas créer de barre de défilement. */
+  overflow-x: clip;
+  background-color: var(--fond);
+  color: var(--texte);
+  font-family: var(--police-titre);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+.mono {
+  font-family: var(--police-mono);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* ---- Lien d'évitement -------------------------------------- */
+
+.lien-evitement {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 14px 20px;
+  background: var(--accent);
+  color: var(--texte-sur-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.lien-evitement:focus {
+  left: 0;
+}
+
+/* ---- Mouvement réduit : tout s'affiche directement --------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}

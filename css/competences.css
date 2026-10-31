@@ -1,0 +1,44 @@
+/* Section compétences : quatre familles de technologies, sur deux rangées.
+   Mise en page de section : structure.css. Carte : cartes.css. */
+
+/* Deux rangées de bandes, 24px entre elles au lieu des 40px de la colonne. */
+.bande--serree {
+  margin-top: -16px;
+}
+
+.familles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.carte--famille .carte__contenu {
+  gap: 18px;
+}
+
+/* Deux rangées de pastilles réservées : mêmes y d'une famille à l'autre. */
+.carte--famille .puces {
+  gap: 8px;
+  min-height: 72px;
+  align-content: flex-start;
+}
+
+.carte--famille .puce {
+  height: 30px;
+}
+
+@media (min-width: 901px) {
+  .carte--famille .carte__contenu {
+    padding: 32px;
+  }
+}
+
+@media (max-width: 900px) {
+  .familles {
+    grid-template-columns: 1fr;
+  }
+
+  .bande--serree {
+    margin-top: 0;
+  }
+}

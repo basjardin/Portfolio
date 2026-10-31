@@ -1,0 +1,85 @@
+/* Section accueil : espacement et textes.
+   Colonne, bandes et annotations : structure.css. */
+
+.accueil {
+  display: flex;
+  justify-content: center;
+  /* Plein écran : le titre de la section suivante reste hors de vue.
+     `svh` = hauteur visible sur mobile, barre d'adresse comprise. */
+  min-height: 100vh;
+  min-height: 100svh;
+  /* Les rails dépassent de ce padding (traits.css) : garder les deux accordés. */
+  padding: 140px 120px;
+}
+
+/* La colonne remplit la hauteur de la section (les rails vont d'un bord à
+   l'autre) et centre ses bandes. */
+.accueil .colonne {
+  justify-content: center;
+}
+
+/* 10px entre le texte et ses traits. Pas pour la bande des boutons : ils
+   touchent les traits du haut et du bas. */
+.accueil .bande:not(:has(> .accueil__actions)) {
+  padding-block: 10px;
+}
+
+.accueil__kicker {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--texte-discret);
+}
+
+.accueil__titre {
+  /* 11em ≈ la ligne « et des applications web. » : les rails collent au
+     texte, qui a 4px de padding de chaque côté (hachures.css). */
+  max-width: calc(11em + 8px);
+  font-size: clamp(38px, 5.3vw, 76px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.046em;
+}
+
+.accueil__phrase {
+  max-width: 62ch;
+  font-size: clamp(16px, 1.4vw, 20px);
+  line-height: 1.6;
+  color: var(--texte-secondaire);
+}
+
+.accueil__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.accueil__statut {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--texte-discret);
+}
+
+.accueil__pastille {
+  width: 7px;
+  height: 7px;
+  background: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .accueil {
+    padding: 72px 16px;
+  }
+
+  .accueil__titre {
+    letter-spacing: -0.04em;
+  }
+
+  .accueil__actions {
+    width: 100%;
+    flex-direction: column;
+  }
+}

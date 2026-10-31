@@ -1,0 +1,50 @@
+/* Pied de page : copyright à gauche, liens à droite.
+   Rails verticaux : traits.css. --rail : structure.css. */
+
+.pied {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 28px;
+  /* Contenu à 24px des rails. */
+  padding: 48px calc(var(--rail) + 24px);
+  border-top: 1px solid var(--trait);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  color: var(--texte-discret);
+}
+
+.pied__liens {
+  display: flex;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pied a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.pied a:hover,
+.pied a:focus-visible {
+  color: var(--texte);
+}
+
+/* Lien sans page : même rendu qu'un lien, sans survol. */
+.pied__inactif {
+  opacity: 0.6;
+  cursor: default;
+}
+
+@media (max-width: 900px) {
+  .pied {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-block: 32px;
+  }
+}

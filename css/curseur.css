@@ -1,0 +1,77 @@
+/* Curseur blueprint (js/curseur.js) : carré qui suit le
+   pointeur, coordonnées. Absent sur écran tactile. */
+
+:root {
+  /* Couleurs du carré, relues par le script (GSAP ne lit pas var()). */
+  --curseur-fond: hsla(237.1, 80.4%, 70%, 0.18);
+  --curseur-bordure: hsla(237, 80%, 70%, 0.25);
+  --curseur-bordure-survol: hsla(0, 0%, 80%, 0.5);
+}
+
+/* Tout est invisible tant que la souris n'a pas bougé. */
+.curseur__carre,
+.curseur__coord {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* Croix au centre du carré au repos : deux traits de 9px. Elle s'efface quand
+   le carré s'accroche à un lien ou un bouton (classe posée par le script). */
+.curseur__carre::before,
+.curseur__carre::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: var(--curseur-bordure);
+  transition: opacity 0.2s ease;
+}
+
+.curseur__carre::before {
+  width: 9px;
+  height: 1px;
+  transform: translate(-50%, -50%);
+}
+
+.curseur__carre::after {
+  width: 1px;
+  height: 9px;
+  transform: translate(-50%, -50%);
+}
+
+.curseur__carre--cible::before,
+.curseur__carre--cible::after {
+  opacity: 0;
+}
+
+/* Carré : position, taille et bordure animées par le script. */
+.curseur__carre {
+  z-index: 60;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--curseur-bordure);
+  background: var(--curseur-fond);
+}
+
+.curseur__coord {
+  z-index: 60;
+  font-size: 10px;
+  line-height: 13px;
+  white-space: nowrap;
+  color: var(--texte-discret);
+}
+
+/* Curseur système masqué dès que le curseur blueprint est actif. */
+html.curseur-actif,
+html.curseur-actif * {
+  cursor: none !important;
+}
+
+@media (hover: none) {
+  .curseur {
+    display: none;
+  }
+}

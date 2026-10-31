@@ -1,0 +1,90 @@
+/* Section parcours : expérience et formation, en étapes l'une sous l'autre.
+   Mise en page de section : structure.css. Chaque étape est une `.bande`
+   (traits pleine largeur) dont le contenu est décalé du rail de gauche, sur
+   lequel se pose un repère couleur d'accent à la hauteur de la date. */
+
+/* 24px entre les étapes : chacune garde son fond et ses traits (comme les
+   cartes de la grille des projets). */
+.parcours {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* 40px entre le rail et le contenu ; 40px sous chaque étape. */
+.etape {
+  /* Fond derrière les hachures du titre (hachures.css). */
+  --cache: var(--surface);
+  padding: 0 0 40px 40px;
+  background: var(--surface);
+}
+
+.etape__contenu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.etape__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 12px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.etape__date {
+  position: relative;
+  /* Blanc, comme le titre : la date est le repère de l'étape. La description
+     (--texte-secondaire) et le lieu (--texte-discret) passent derrière. */
+  color: var(--texte);
+  font-weight: 500;
+}
+
+.etape__lieu {
+  color: var(--texte-discret);
+}
+
+/* Repère sur le rail : la seule couleur d'accent de la section. */
+.etape__date::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -40px;
+  width: 6px;
+  height: 10px;
+  background: var(--accent);
+  /* Au-dessus du rail (traits.css, z-index 1). */
+  z-index: 2;
+}
+
+.etape__titre {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: -0.02em;
+}
+
+/* Lignes de 520px, mais les traits de la maquette couvrent toute la largeur :
+   la largeur du texte est un padding, pas un max-width. */
+.etape__description {
+  padding-right: calc(100% - 520px);
+  min-height: 50px;
+  font-size: 16px;
+  line-height: 25px;
+  color: var(--texte-secondaire);
+}
+
+@media (max-width: 900px) {
+  .etape {
+    padding-left: 24px;
+  }
+
+  .etape__date::before {
+    left: -24px;
+  }
+}

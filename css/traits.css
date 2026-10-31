@@ -1,0 +1,277 @@
+/* Traits de repère. Rails verticaux calés sur `.colonne`, traits
+   horizontaux sur `.bande` : le contenu place les traits.
+   Leur tracé est animé dans animation.css.
+   Pour tout couper : <body class="sans-traits"> */
+
+:root {
+  --trait: hsl(220, 31.3%, 13.1%);
+}
+
+/* ---- Rails verticaux ----------------------------------------- */
+
+/* Débordent du padding de l'accueil pour couvrir toute la section. */
+
+.colonne {
+  position: relative;
+}
+
+.colonne::before,
+.colonne::after {
+  content: "";
+  position: absolute;
+  top: -140px;
+  bottom: -140px;
+  width: 1px;
+  background: var(--trait);
+  pointer-events: none;
+  /* Au-dessus des bandes : leur fond (hachures, cache) masquait le rail. */
+  z-index: 1;
+}
+
+.colonne::before {
+  left: 0;
+}
+
+.colonne::after {
+  right: 0;
+}
+
+/* ---- Traits horizontaux -------------------------------------- */
+
+/* Trait haut et bas par bande, centré, à la largeur de l'écran. */
+
+.bande {
+  position: relative;
+}
+
+.bande::before,
+.bande::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  height: 1px;
+  background: var(--trait);
+  pointer-events: none;
+  /* Au-dessus d'un bouton en cours d'apparition (z-index 0). */
+  z-index: 1;
+}
+
+.bande::before {
+  top: 0;
+}
+
+.bande::after {
+  bottom: 0;
+}
+
+/* ---- Bords de section ---------------------------------------- */
+
+/* Une bordure suffit : le trait fait déjà toute la largeur. */
+
+.accueil {
+  border-block: 1px solid var(--trait);
+}
+
+/* Le haut d'une section est le bas de la précédente : un seul trait. */
+.section {
+  border-bottom: 1px solid var(--trait);
+}
+
+/* ---- Dans les cartes ----------------------------------------- */
+
+/* Mêmes repères que sur la page, à l'échelle d'une carte : un trait haut et
+   bas à chaque `.bloc` (titre, techno, texte, boutons), sur toute la largeur
+   de la carte, et deux traits verticaux sur les bords du contenu.
+   24px = le padding de `.carte__contenu` ; 56px pour les cartes en vedette
+   (ordinateur) ; 32px pour les familles de compétences ; 40px pour le contact. */
+
+.carte__contenu::before,
+.carte__contenu::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--trait);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.carte__contenu::before {
+  left: 24px;
+}
+
+.carte__contenu::after {
+  right: 24px;
+}
+
+.bloc {
+  position: relative;
+}
+
+.bloc::before,
+.bloc::after {
+  content: "";
+  position: absolute;
+  left: -24px;
+  width: calc(100% + 48px);
+  height: 1px;
+  background: var(--trait);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bloc::before {
+  top: 0;
+}
+
+.bloc::after {
+  bottom: 0;
+}
+
+@media (min-width: 901px) {
+  .carte--contact .carte__contenu::before {
+    left: 40px;
+  }
+
+  .carte--contact .carte__contenu::after {
+    right: 40px;
+  }
+
+  .carte--contact .bloc::before,
+  .carte--contact .bloc::after {
+    left: -40px;
+    width: calc(100% + 80px);
+  }
+
+  .carte--famille .carte__contenu::before {
+    left: 32px;
+  }
+
+  .carte--famille .carte__contenu::after {
+    right: 32px;
+  }
+
+  .carte--famille .bloc::before,
+  .carte--famille .bloc::after {
+    left: -32px;
+    width: calc(100% + 64px);
+  }
+
+  .carte--vedette .carte__contenu::before {
+    left: 56px;
+  }
+
+  .carte--vedette .carte__contenu::after {
+    right: 56px;
+  }
+
+  .carte--vedette .bloc::before,
+  .carte--vedette .bloc::after {
+    left: -56px;
+    width: calc(100% + 112px);
+  }
+}
+
+/* ---- Dans le parcours ----------------------------------------- */
+
+/* Les traits des blocs d'une étape ne vont pas jusqu'au bord de la page :
+   ils couvrent le contenu, qui est décalé du rail. Un trait vertical sur son
+   bord gauche, d'une étape à l'autre (40px = le bas de l'étape). */
+
+.etape .bloc::before,
+.etape .bloc::after {
+  left: 0;
+  width: 100%;
+}
+
+/* Seuls le titre et les pastilles gardent leurs traits (haut et bas) : avec
+   des blocs séparés de 8px, des traits partout en feraient trop. */
+.etape__meta::before,
+.etape__meta::after,
+.etape__description::before,
+.etape__description::after {
+  display: none;
+}
+
+.etape__contenu::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: -40px;
+  left: 0;
+  width: 1px;
+  background: var(--trait);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ---- En-tête et pied de page --------------------------------- */
+
+/* Deux rails sur les bords de la grille (--rail, structure.css), comme les
+   sections. Le trait horizontal est la bordure de l'en-tête et du pied. */
+
+.entete::before,
+.entete::after,
+.pied::before,
+.pied::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--trait);
+  pointer-events: none;
+}
+
+.entete::before,
+.pied::before {
+  left: var(--rail);
+}
+
+.entete::after,
+.pied::after {
+  right: var(--rail);
+}
+
+/* ---- Interrupteur -------------------------------------------- */
+
+.sans-traits .colonne::before,
+.sans-traits .colonne::after,
+.sans-traits .bande::before,
+.sans-traits .bande::after {
+  display: none;
+}
+
+.sans-traits .carte__contenu::before,
+.sans-traits .carte__contenu::after,
+.sans-traits .bloc::before,
+.sans-traits .bloc::after {
+  display: none;
+}
+
+.sans-traits .accueil {
+  border-block-color: transparent;
+}
+
+.sans-traits .section {
+  border-bottom-color: transparent;
+}
+
+.sans-traits .etape__contenu::before,
+.sans-traits .entete::before,
+.sans-traits .entete::after,
+.sans-traits .pied::before,
+.sans-traits .pied::after {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .colonne::before,
+  .colonne::after {
+    top: -72px;
+    bottom: -72px;
+  }
+}

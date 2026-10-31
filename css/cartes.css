@@ -1,0 +1,40 @@
+/* Carte : fond, bordure, contenu et titre. Partagée par les projets, les
+   familles de compétences… Les traits à l'intérieur sont dans traits.css,
+   les hachures du titre dans hachures.css. */
+
+.carte {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--bordure-carte);
+  background: var(--surface);
+}
+
+.carte__contenu {
+  /* Fond derrière les hachures (hachures.css). */
+  --cache: var(--surface);
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px;
+}
+
+.carte__titre {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 27px;
+  letter-spacing: -0.02em;
+}
+
+.carte__actions {
+  display: flex;
+  gap: 12px;
+}
+
+.carte__actions .bouton {
+  flex: 1 1 0;
+  min-height: 44px;
+  padding-inline: 12px;
+  white-space: nowrap;
+}

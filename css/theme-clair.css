@@ -1,0 +1,70 @@
+/* THÈME CLAIR — c'est ici que tu modifies les couleurs claires.
+   Ordre des fonds, du plus sombre au plus clair : fond < surface <
+   hachures. Les hachures doivent ressortir sur les deux.
+
+   - Thème sombre : css/base.css (jetons), css/hachures.css, css/traits.css
+     et css/curseur.css (leurs jetons dans :root).
+   - Ce fichier ne remplace que des jetons : aucune règle de mise en page.
+   - Il est activé par <html data-theme="light"> (js/theme.js, bouton ☀/☾
+     du header, choix mémorisé dans localStorage).
+   - À charger après tous les fichiers qui déclarent des jetons. */
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  /* ---- Fonds ------------------------------------------------- */
+  --fond: hsl(220, 20%, 80%);
+  --surface: hsl(220, 20%, 85.9%);
+
+  /* ---- Bordures ---------------------------------------------- */
+  /* Plus sombres que le fond : sinon les cartes s'y fondent. */
+  --bordure-marquee: hsl(215.3, 25%, 60%);
+  --bordure-carte: hsl(217.2, 32.6%, 72%);
+
+  /* ---- Textes ------------------------------------------------ */
+  --texte: hsl(0, 0%, 0%);
+  --texte-secondaire: hsl(215, 20.2%, 34.9%);
+  --texte-discret: hsl(219.5, 17.9%, 41.6%);
+  --annotation: hsl(0, 0%, 50.2%);
+
+  /* ---- Hachures (fort = titres, moyen = textes et boutons) ---- */
+  --hachure-fort: hsl(0, 0%, 100%);
+  --hachure-moyen: hsl(0, 0%, 95.6%);
+
+  /* ---- Traits de repère (rails et lignes des bandes) ---------- */
+  --trait: hsl(0, 0%, 70%);
+
+  /* ---- Accent (actions) -------------------------------------- */
+  --accent: hsl(228, 80%, 50%);
+  --accent-survol: hsl(228, 85%, 42%);
+  /* Le fond gris serait illisible sur le bleu. */
+  --texte-sur-accent: hsl(0, 0%, 100%);
+
+  /* ---- Curseur ------------------------------------------------ */
+  --curseur-fond: hsla(228, 80%, 50%, 0.18);
+  --curseur-bordure: hsla(228, 80%, 50%, 0.25);
+  --curseur-bordure-survol: hsla(0, 0%, 20%, 0.5);
+
+  /* ---- Technologies : texte, puis fond de la puce ------------- */
+  /* Fonds plus clairs que --surface : la puce ressort sur la carte. */
+  --tech-orange: hsl(27.6, 73.3%, 33.7%);
+  --tech-fond-orange: hsl(27.6, 60%, 94%);
+  --tech-bleu: hsl(208.6, 60.9%, 35.1%);
+  --tech-fond-bleu: hsl(208.6, 60%, 94%);
+  --tech-jaune: hsl(49.2, 59.4%, 36.7%);
+  --tech-fond-jaune: hsl(49.2, 60%, 92%);
+  --tech-violet: hsl(248.1, 56.6%, 28%);
+  --tech-fond-violet: hsl(248.1, 60%, 95%);
+  --tech-pourpre: hsl(273.3, 50.3%, 32.4%);
+  --tech-fond-pourpre: hsl(273.3, 50%, 95%);
+  --tech-rouge: hsl(0, 55.6%, 33.5%);
+  --tech-fond-rouge: hsl(0, 60%, 95%);
+  --tech-vert: hsl(146.7, 39.1%, 40.6%);
+  --tech-fond-vert: hsl(146.7, 40%, 93%);
+  --tech-gris: hsl(213.2, 20.4%, 36.5%);
+  --tech-fond-gris: hsl(213.2, 20%, 95%);
+  --tech-rose: hsl(308.7, 36.5%, 33.3%);
+  --tech-fond-rose: hsl(308.7, 40%, 95%);
+  --tech-cyan: hsl(190.5, 60.9%, 35.1%);
+  --tech-fond-cyan: hsl(190.5, 60%, 93%);
+}

@@ -20,7 +20,7 @@
 | Favicon | `/icons/Robin.svg` |
 | Meta description | `Portfolio de Robin Basjardin, développeur web front-end et back-end en Normandie. Diplômé du BUT MMI et certifié Opquast. Parcours, projets, compétences et contact.` |
 | OpenGraph title / description | identiques au titre et à la description ci-dessus |
-| Police | **Funnel Display** (variable, poids 100–900), fichiers dans `public/font/Funnel_Display/` |
+| Police | **Funnel Display** (variable, poids 100–900), fichiers dans `assets/fonts/` |
 | Hébergement | GitHub Pages, branche `main`, sous-chemin `/Portfolio` |
 
 > ⚠️ Le sous-chemin `/Portfolio` est important : tous les chemins d'images et
@@ -401,7 +401,7 @@ Existe dans l'ancien code mais **n'est plus monté dans la page**.
 ## 12. Ressources à conserver
 
 ### Polices
-`public/font/Funnel_Display/` — variable + statiques (Light, Regular, Medium, SemiBold, Bold, ExtraBold) + `OFL.txt`
+`assets/fonts/` — variable + statiques (Light, Regular, Medium, SemiBold, Bold, ExtraBold) + `OFL.txt`
 
 ### Icônes de compétences (22)
 `html, css, scss, js, typescript, php, sql, react, vite, next, node, codeigniter, tailwind, Bootstrap, wordpress, git, mysql, figma, photoshop, illustrator, blender, unity` (+ `Robin.svg` pour le favicon)

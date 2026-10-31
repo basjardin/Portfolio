@@ -1,0 +1,31 @@
+/* Pastilles de technologies : texte et fond d'une même teinte
+   (jetons --tech-* dans base.css). Le mono vient de la classe `.mono`. */
+
+.puces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.puce {
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 12px;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.puce--orange { color: var(--tech-orange); background: var(--tech-fond-orange); }
+.puce--bleu { color: var(--tech-bleu); background: var(--tech-fond-bleu); }
+.puce--jaune { color: var(--tech-jaune); background: var(--tech-fond-jaune); }
+.puce--violet { color: var(--tech-violet); background: var(--tech-fond-violet); }
+.puce--pourpre { color: var(--tech-pourpre); background: var(--tech-fond-pourpre); }
+.puce--rouge { color: var(--tech-rouge); background: var(--tech-fond-rouge); }
+.puce--vert { color: var(--tech-vert); background: var(--tech-fond-vert); }
+.puce--gris { color: var(--tech-gris); background: var(--tech-fond-gris); }
+.puce--rose { color: var(--tech-rose); background: var(--tech-fond-rose); }
+.puce--cyan { color: var(--tech-cyan); background: var(--tech-fond-cyan); }

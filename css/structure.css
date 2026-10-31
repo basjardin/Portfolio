@@ -1,0 +1,137 @@
+/* Structure blueprint, réutilisable dans chaque section :
+   une `.colonne` (les rails verticaux se calent sur ses bords) faite de
+   `.bande` empilées (un trait en haut et en bas de chacune).
+   Les traits sont dans traits.css, les annotations ci-dessous. */
+
+/* ---- Grille de la page --------------------------------------- */
+
+/* Marge des sections sur les côtés. La grille fait 1200px au plus : ses
+   bords (--rail) tombent sur les rails, que suivent aussi l'en-tête et le
+   pied de page. */
+:root {
+  --gouttiere: 120px;
+}
+
+.entete,
+.pied {
+  --rail: max(var(--gouttiere), (100% - 1200px) / 2);
+}
+
+@media (max-width: 1100px) {
+  :root {
+    --gouttiere: 48px;
+  }
+}
+
+@media (max-width: 900px) {
+  :root {
+    --gouttiere: 16px;
+  }
+}
+
+/* ---- Colonne et bandes --------------------------------------- */
+
+/* Largeur = celle de l'enfant le plus large : le contenu place les rails. */
+.colonne {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  width: fit-content;
+  max-width: 100%;
+  text-align: center;
+}
+
+.bande {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.bande > * {
+  width: 100%;
+}
+
+/* ---- Annotations -------------------------------------------- */
+
+/* Petites notes mono de part et d'autre de la colonne, hors de la zone de
+   lecture, collées au trait du haut ou du bas de leur bande.
+   Position finale au hasard : js/annotations.js. */
+.bande > .annotation {
+  position: absolute;
+  top: 1px;
+  left: calc(100% + 8px);
+  width: auto;
+  font-size: 10px;
+  line-height: 13px;
+  white-space: nowrap;
+  color: var(--annotation);
+  pointer-events: none;
+}
+
+/* Version à gauche : alignée sur le rail gauche. */
+.bande > .annotation--gauche {
+  left: auto;
+  right: calc(100% + 8px);
+  text-align: right;
+}
+
+@media (max-width: 1100px) {
+  .bande > .annotation {
+    display: none;
+  }
+}
+
+/* ---- Sections de contenu (projets, compétences, parcours) ------- */
+
+/* Section à la largeur de la grille (1200px) : la colonne prend toute la
+   largeur au lieu de celle du texte, les rails tombent sur les bords des
+   cartes. Les bandes touchent leurs traits (pas de marge). */
+.section {
+  display: flex;
+  justify-content: center;
+  padding: 112px var(--gouttiere);
+}
+
+.section .colonne {
+  width: 100%;
+  max-width: 1200px;
+  align-items: stretch;
+  gap: 40px;
+  text-align: left;
+}
+
+/* Les rails débordent du padding (traits.css : 140px pour l'accueil). */
+.section .colonne::before,
+.section .colonne::after {
+  top: -112px;
+  bottom: -112px;
+}
+
+.titre-section {
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 48px;
+  letter-spacing: -0.033em;
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding-block: 72px;
+  }
+
+  .section .colonne {
+    gap: 24px;
+  }
+
+  .section .colonne::before,
+  .section .colonne::after {
+    top: -72px;
+    bottom: -72px;
+  }
+
+  .titre-section {
+    font-size: 36px;
+    line-height: 40px;
+  }
+}

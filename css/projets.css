@@ -1,0 +1,187 @@
+/* Section projets : cartes, visuels, grille.
+   Mise en page de section : structure.css. Traits dans les cartes :
+   traits.css. Pastilles de technos : puces.css. Boutons : boutons.css. */
+
+.projets__sous-titre {
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: -0.02em;
+}
+
+/* ---- Visuel ------------------------------------------------- */
+
+/* Visuel sans capture : une croix de coin à coin, comme un placeholder de
+   wireframe, et la liste des technos en son centre sur fond opaque. */
+.carte__visuel {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 200px;
+  border-bottom: 1px solid var(--trait);
+}
+
+.carte__visuel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* `to top right` : la ligne à 50 % passe par les deux coins. */
+  background-image:
+    linear-gradient(to top right, transparent calc(50% - 0.5px), var(--trait) calc(50% - 0.5px) calc(50% + 0.5px), transparent calc(50% + 0.5px)),
+    linear-gradient(to bottom right, transparent calc(50% - 0.5px), var(--trait) calc(50% - 0.5px) calc(50% + 0.5px), transparent calc(50% + 0.5px));
+}
+
+/* Visuel avec capture : l'image remplace la croix et la liste des technos. */
+.carte__visuel--image::before {
+  display: none;
+}
+
+.carte__visuel--image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.visuel__stack {
+  position: relative;
+  padding: 6px 14px;
+  background: var(--surface);
+  font-size: 11px;
+  line-height: 20px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--texte-secondaire);
+}
+
+.carte__description {
+  min-height: 74px;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--texte-secondaire);
+}
+
+.carte__commentaire {
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--texte-discret);
+}
+
+/* ---- Cartes en vedette -------------------------------------- */
+
+.carte--vedette .carte__titre {
+  font-weight: 800;
+  letter-spacing: 0.008em;
+}
+
+/* ---- Grille des autres projets ------------------------------ */
+
+.grille {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+/* Titres sur deux lignes réservées et boutons en bas : mêmes y d'une
+   carte à l'autre. */
+.grille .carte__titre {
+  min-height: 62px;
+}
+
+.grille .carte__actions {
+  margin-top: auto;
+}
+
+/* Bouton de dépliement : mobile seulement. */
+.bande--plus {
+  display: none;
+}
+
+/* ---- Ordinateur --------------------------------------------- */
+
+@media (min-width: 901px) {
+  /* Deux moitiés égales : minmax(0, 1fr) pour que le padding du contenu
+     ne fausse pas le partage. */
+  .carte--vedette {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: 420px;
+  }
+
+  .carte--vedette .carte__visuel {
+    border-bottom: 0;
+    border-right: 1px solid var(--trait);
+  }
+
+  /* Visuel à droite : il passe après le contenu, le HTML reste le même. */
+  .carte--inverse .carte__visuel {
+    order: 2;
+    border-right: 0;
+    border-left: 1px solid var(--trait);
+  }
+
+  .carte--vedette .carte__contenu {
+    gap: 18px;
+    padding: 56px;
+  }
+
+  .carte--vedette .carte__titre {
+    font-size: 32px;
+    line-height: 38px;
+  }
+
+  .carte--vedette .visuel__stack {
+    font-size: 13px;
+  }
+
+  .carte--vedette .puce {
+    height: 30px;
+  }
+
+  .carte--vedette .carte__description {
+    min-height: 86px;
+    font-size: 17px;
+    line-height: 26px;
+  }
+
+  .carte--vedette .carte__actions .bouton {
+    min-height: 52px;
+  }
+
+  .grille {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grille .carte {
+    min-height: 533px;
+  }
+}
+
+/* ---- Mobile ------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .projets__sous-titre {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  .carte--vedette .carte__titre {
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  .carte--vedette .carte__description {
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  .bande--plus {
+    display: flex;
+  }
+
+  /* Les 3 autres projets sont repliés tant que le bouton n'a pas servi. */
+  .colonne:not(.ouvert) .bande--autres {
+    display: none;
+  }
+}

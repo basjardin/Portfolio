@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Robin Basjardin — Développeur web</title>
+  <meta name="description"
+    content="Portfolio de Robin Basjardin, développeur web front-end et back-end en Normandie. Diplômé du BUT MMI et certifié Opquast.">
+  <meta property="og:title" content="Robin Basjardin — Développeur web">
+  <meta property="og:description"
+    content="Portfolio de Robin Basjardin, développeur web front-end et back-end en Normandie. Diplômé du BUT MMI et certifié Opquast.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/icons/Robin.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300;400;500;600;800&family=JetBrains+Mono:wght@400;500&display=swap">
+
+  <!-- Ordre : base, structure, sections, composants, puis effets. -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/structure.css">
+  <link rel="stylesheet" href="css/accueil.css">
+  <link rel="stylesheet" href="css/cartes.css">
+  <link rel="stylesheet" href="css/puces.css">
+  <link rel="stylesheet" href="css/projets.css">
+  <link rel="stylesheet" href="css/competences.css">
+  <link rel="stylesheet" href="css/parcours.css">
+  <link rel="stylesheet" href="css/contact.css">
+  <link rel="stylesheet" href="css/boutons.css">
+  <link rel="stylesheet" href="css/entete.css">
+  <link rel="stylesheet" href="css/pied.css">
+  <link rel="stylesheet" href="css/curseur.css">
+  <link rel="stylesheet" href="css/hachures.css">
+  <link rel="stylesheet" href="css/traits.css">
+  <link rel="stylesheet" href="css/theme-clair.css">
+  <link rel="stylesheet" href="css/animation.css">
+  <link rel="stylesheet" href="css/animation-sections.css">
+
+  <!-- Dans le head : le thème est posé avant le premier rendu. -->
+  <script src="js/theme.js"></script>
+</head>
+
+<body>
+  <a class="lien-evitement" href="#contenu">Aller au contenu</a>
+
+  <div class="curseur" aria-hidden="true">
+    <span class="curseur__carre"></span>
+    <span class="curseur__coord mono"></span>
+  </div>
+
+  <header class="entete">
+    <a class="entete__logo" href="#accueil" aria-label="Robin Basjardin, retour à l'accueil">Robin Basjardin</a>
+    <nav aria-label="Navigation principale">
+      <ul class="entete__liens">
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#competences">Compétences</a></li>
+        <li><a href="#parcours">Parcours</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="entete__actions">
+      <button class="theme-bouton" type="button" aria-label="Passer au thème clair">&#9728;&#xFE0E;</button>
+      <a class="bouton" href="assets/CV-Robin-Basjardin.pdf" download><span class="entete__cv-long">Télécharger le </span>CV</a>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <!-- Accueil -->
+    <section class="accueil" id="accueil">
+
+      <!-- Cette div se dimensionne sur son enfant le plus large — le titre
+           ou la phrase. Ce sont donc eux qui décident où tombent les rails. -->
+      <div class="colonne">
+
+      <div class="bande">
+        <p class="accueil__kicker mono">
+          // développeur web · front-end &amp; back-end · Normandie
+        </p>
+        <span class="annotation mono" aria-hidden="true">text-[13px]</span>
+        <span class="annotation annotation--gauche mono" aria-hidden="true">font-mono</span>
+      </div>
+
+      <div class="bande">
+        <h1 class="accueil__titre">
+          Je construis des sites et&nbsp;des applications web.
+        </h1>
+        <span class="annotation mono" aria-hidden="true">text-7xl/[76px]</span>
+        <span class="annotation annotation--gauche mono" aria-hidden="true">leading-none</span>
+      </div>
+
+      <div class="bande">
+        <p class="accueil__phrase">
+          Diplômé du BUT MMI et certifié Opquast, je conçois et développe de la
+          maquette à la mise en ligne. Je cherche mon premier poste de développeur.
+        </p>
+        <span class="annotation mono" aria-hidden="true">text-xl/relaxed</span>
+        <span class="annotation annotation--gauche mono" aria-hidden="true">font-light</span>
+      </div>
+
+      <div class="bande">
+        <div class="accueil__actions">
+          <a class="bouton" href="#projets">Voir mes projets →</a>
+          <a class="bouton bouton--secondaire" href="assets/CV-Robin-Basjardin.pdf" download>Télécharger le CV</a>
+        </div>
+        <span class="annotation mono" aria-hidden="true">flex gap-4</span>
+        <span class="annotation annotation--gauche mono" aria-hidden="true">h-14</span>
+      </div>
+
+      <div class="bande">
+        <p class="accueil__statut mono">
+          <span class="accueil__pastille" aria-hidden="true"></span>
+          disponible — Elbeuf, Normandie · permis B et véhiculé
+        </p>
+        <span class="annotation mono" aria-hidden="true">text-xs</span>
+        <span class="annotation annotation--gauche mono" aria-hidden="true">size-[7px]</span>
+      </div>
+
+      </div>
+    </section>
+
+    <!-- Projets : 2 en vedette, puis 3 autres. Aucune capture pour l'instant :
+         chaque visuel est la croix de remplacement. Un lien sans adresse est un
+         <span class="bouton--inactif"> au lieu d'un <a>. -->
+    <section class="section projets" id="projets" aria-labelledby="projets-titre">
+      <div class="colonne">
+
+        <div class="bande">
+          <h2 class="titre-section" id="projets-titre" data-ecriture="scramble">Mes projets</h2>
+          <span class="annotation mono" aria-hidden="true">text-[44px]</span>
+          <span class="annotation annotation--gauche mono" aria-hidden="true">font-extrabold</span>
+        </div>
+
+        <!-- Vedette 1 : visuel à gauche -->
+        <div class="bande">
+          <article class="carte carte--vedette">
+            <div class="carte__visuel carte__visuel--image">
+              <img src="assets/img/arh-industrie.webp" width="715" height="540" loading="lazy" alt="Page d'accueil du site ARH Industrie : photo d'une toiture industrielle, titre et boutons de contact">
+            </div>
+            <div class="carte__contenu">
+              <h3 class="bloc carte__titre" data-ecriture="scramble">Site vitrine ARH Industrie</h3>
+              <ul class="bloc puces mono" aria-label="Technologies">
+                <li class="puce puce--orange">HTML</li>
+                <li class="puce puce--bleu">CSS</li>
+                <li class="puce puce--jaune">JavaScript</li>
+              </ul>
+              <p class="bloc carte__description" data-ecriture="machine">Site d'une entreprise de couverture, bardage, étanchéité et menuiserie extérieure à Rouen, pour que ses clients la découvrent et la contactent. Design d'après leur PDF, intégration et code réalisés seul.</p>
+              <p class="bloc carte__commentaire mono" data-ecriture="lettres">// site client : démo et code inaccessibles (dépôt privé)</p>
+            </div>
+          </article>
+          <span class="annotation mono" aria-hidden="true">grid-cols-2</span>
+          <span class="annotation annotation--gauche mono" aria-hidden="true">min-h-[420px]</span>
+        </div>
+
+        <!-- Vedette 2 : visuel à droite -->
+        <div class="bande">
+          <article class="carte carte--vedette carte--inverse">
+            <div class="carte__visuel" aria-hidden="true">
+              <span class="visuel__stack mono" data-ecriture="lettres">CodeIgniter / PHP / SQL</span>
+            </div>
+            <div class="carte__contenu">
+              <h3 class="bloc carte__titre" data-ecriture="scramble">Réservation de matériel scolaire</h3>
+              <ul class="bloc puces mono" aria-label="Technologies">
+                <li class="puce puce--rouge">CodeIgniter</li>
+                <li class="puce puce--pourpre">PHP</li>
+                <li class="puce puce--bleu">SQL</li>
+                <li class="puce puce--violet">Bootstrap</li>
+              </ul>
+              <p class="bloc carte__description" data-ecriture="machine">Application web pour réserver le matériel de l'IUT de Rouen (caméras, lumières…) pour les projets étudiants, développée avec CodeIgniter, Bootstrap et une base SQL.</p>
+              <p class="bloc carte__commentaire mono" data-ecriture="lettres">// pas de démo en ligne : nécessite PHP et une base SQL</p>
+              <div class="bloc carte__actions">
+                <span class="bouton bouton--inactif" role="link" aria-disabled="true">Voir la démo →</span>
+                <a class="bouton bouton--secondaire" href="https://github.com/basjardin/reservation" target="_blank" rel="noopener noreferrer">Voir le code</a>
+              </div>
+            </div>
+          </article>
+          <span class="annotation mono" aria-hidden="true">flex-row-reverse</span>
+          <span class="annotation annotation--gauche mono" aria-hidden="true">p-14</span>
+        </div>
+
+        <div class="bande bande--autres">
+          <h3 class="projets__sous-titre" data-ecriture="scramble">Autres projets</h3>
+          <span class="annotation mono" aria-hidden="true">text-[26px]</span>
+          <span class="annotation annotation--gauche mono" aria-hidden="true">font-medium</span>
+        </div>
+
+        <div class="bande bande--autres">
+          <div class="grille">
+
+            <article class="carte">
+              <div class="carte__visuel" aria-hidden="true">
+                <span class="visuel__stack mono" data-ecriture="lettres">PHP / SQL / Bootstrap</span>
+              </div>
+              <div class="carte__contenu">
+                <h4 class="bloc carte__titre" data-ecriture="scramble">Application pour professeurs bénévoles</h4>
+                <ul class="bloc puces mono" aria-label="Technologies">
+                  <li class="puce puce--pourpre">PHP</li>
+                  <li class="puce puce--bleu">SQL</li>
+                  <li class="puce puce--violet">Bootstrap</li>
+                </ul>
+                <p class="bloc carte__description" data-ecriture="machine">Application en PHP destinée aux professeurs bénévoles qui accompagnent des élèves en difficulté scolaire.</p>
+                <p class="bloc carte__commentaire mono" data-ecriture="lettres">// démo et code inaccessibles (dépôt privé)</p>
+              </div>
+            </article>
+
+            <article class="carte">
+              <div class="carte__visuel" aria-hidden="true">
+                <span class="visuel__stack mono" data-ecriture="lettres">HTML / CSS / JavaScript</span>
+              </div>
+              <div class="carte__contenu">
+                <h4 class="bloc carte__titre" data-ecriture="scramble">CurseForge Mod Awards 2025</h4>
+                <ul class="bloc puces mono" aria-label="Technologies">
+                  <li class="puce puce--orange">HTML</li>
+                  <li class="puce puce--bleu">CSS</li>
+                  <li class="puce puce--jaune">JavaScript</li>
+                </ul>
+                <p class="bloc carte__description" data-ecriture="machine">Site permettant de consulter les mods soumis au vote pendant les CurseForge Mod Awards 2025.</p>
+                <div class="bloc carte__actions">
+                  <a class="bouton" href="https://basjardin.github.io/curseforge-mod-award-2025/" target="_blank" rel="noopener noreferrer">Démo →</a>
+                  <a class="bouton bouton--secondaire" href="https://github.com/basjardin/curseforge-mod-award-2025" target="_blank" rel="noopener noreferrer">Code</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="carte">
+              <div class="carte__visuel" aria-hidden="true">
+                <span class="visuel__stack mono" data-ecriture="lettres">Unity / C#</span>
+              </div>
+              <div class="carte__contenu">
+                <h4 class="bloc carte__titre" data-ecriture="scramble">Anomalia</h4>
+                <ul class="bloc puces mono" aria-label="Technologies">
+                  <li class="puce puce--gris">Unity</li>
+                  <li class="puce puce--vert">C#</li>
+                </ul>
+                <p class="bloc carte__description" data-ecriture="machine">Mon premier jeu vidéo en 3D, créé avec Unity.</p>
+                <div class="bloc carte__actions">
+                  <span class="bouton bouton--inactif" role="link" aria-disabled="true">Démo →</span>
+                  <a class="bouton bouton--secondaire" href="https://github.com/basjardin/Anomalia" target="_blank" rel="noopener noreferrer">Code</a>
+                </div>
+              </div>
+            </article>
+
+          </div>
+          <span class="annotation mono" aria-hidden="true">grid-cols-3</span>
+          <span class="annotation annotation--gauche mono" aria-hidden="true">gap-6</span>
+        </div>
+
+        <!-- Mobile seulement : déplie les 3 autres projets. -->
+        <div class="bande bande--plus">
+          <button class="bouton bouton--secondaire bouton--plus" type="button" aria-expanded="false">Voir mes 3 autres projets ↓</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Compétences : 4 familles, 2 rangées de 2 cartes. -->
+    <section class="section competences" id="competences" aria-labelledby="competences-titre">
+      <div class="colonne">
+
+        <div class="bande">
+          <h2 class="titre-section" id="competences-titre" data-ecriture="scramble">Mes compétences</h2>
+          <span class="annotation mono" aria-hidden="true">py-[112px]</span>
+          <span class="annotation annotation--gauche mono" aria-hidden="true">text-[44px]</span>
+        </div>
+
+        <div class="bande">
+          <div class="familles">
+            <article class="carte carte--famille">
+              <div class="carte__contenu">
+                <h3 class="bloc carte__titre" data-ecriture="scramble">Langages</h3>
+                <ul class="bloc puces mono" aria-label="Langages">
+                  <li class="puce puce--orange">HTML</li>
+                  <li class="puce puce--bleu">CSS</li>
+                  <li class="puce puce--rose">SCSS</li>
+                  <li class="puce puce--jaune">JavaScript</li>
+                  <li class="puce puce--bleu">TypeScript</li>
+                  <li class="puce puce--pourpre">PHP</li>
+                  <li class="puce puce--bleu">SQL</li>
+                  <li class="puce puce--vert">C#</li>
+                </ul>
+              </div>
+            </article>
+            <article class="carte carte--famille">
+              <div class="carte__contenu">
+                <h3 class="bloc carte__titre" data-ecriture="scramble">Front-end</h3>
+                <ul class="bloc puces mono" aria-label="Front-end">
+                  <li class="puce puce--cyan">React</li>
+                  <li class="puce puce--gris">Next.js</li>
+                  <li class="puce puce--violet">Vite</li>
+                  <li class="puce puce--bleu">Tailwind</li>
+                  <li class="puce puce--violet">Bootstrap</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <span class="annotation mono" aria-hidden="true">grid-cols-2</span>
+          <span class="annotation annotation--gauche mono" aria-hidden="true">gap-6</span>
+        </div>
+
+        <div class="bande bande--serree">
+          <div class="familles">
+            <article class="carte carte--famille">
+              <div class="carte__contenu">
+                <h3 class="bloc carte__titre" data-ecriture="scramble">Back-end &amp; base de données</h3>
+                <ul class="bloc puces mono" aria-label="Back-end &amp; base de données">
+                  <li class="puce puce--vert">Node</li>
+                  <li class="puce puce--rouge">CodeIgniter</li>
+                  <li class="puce puce--bleu">MySQL</li>
+                  <li class="puce puce--bleu">WordPress</li>
+                </ul>
+              </div>
+            </article>
+            <article class="carte carte--famille">
+              <div class="carte__contenu">
+                <h3 class="bloc carte__titre" data-ecriture="scramble">Outils &amp; design</h3>
+                <ul class="bloc puces mono" aria-label="Outils &amp; design">
+                  <li class="puce puce--orange">Git</li>
+                  <li class="puce puce--violet">Figma</li>
+                  <li class="puce puce--bleu">Photoshop</li>
+                  <li class="puce puce--orange">Illustrator</li>
+                  <li class="puce puce--orange">Blender</li>
+                  <li class="puce puce--gris">Unity</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <span class="annotation mono" aria-hidden="true">p-8</span>
+          <span class="annotation annotation--gauche mono" aria-hidden="true">gap-[18px]</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Parcours : expérience puis formation, de la plus récente à la plus ancienne. -->
+    <section class="section parcours-section" id="parcours" aria-labelledby="parcours-titre">
+      <div class="colonne">
+
+        <div class="bande">
+          <h2 class="titre-section" id="parcours-titre" data-ecriture="scramble">Expérience &amp; formation</h2>
+          <span class="annotation mono" aria-hidden="true">py-[112px]</span>
+          <span class="annotation annotation--gauche mono" aria-hidden="true">max-w-[520px]</span>
+        </div>
+
+        <ol class="parcours">
+          <li class="bande etape">
+            <div class="etape__contenu">
+              <p class="bloc etape__meta mono" data-ecriture="lettres"><span class="etape__date">2026 · 3 mois</span><span class="etape__lieu">// GreenNature, Préaux</span></p>
+              <h3 class="bloc etape__titre" data-ecriture="scramble">Stage — Refonte du design d'un site WordPress</h3>
+              <p class="bloc etape__description" data-ecriture="machine">Refonte du design du site WordPress de l'entreprise et correction de bugs sur plusieurs plugins.</p>
+            </div>
+            <span class="annotation mono" aria-hidden="true">gap-2</span>
+            <span class="annotation annotation--gauche mono" aria-hidden="true">pl-10</span>
+          </li>
+          <li class="bande etape">
+            <div class="etape__contenu">
+              <p class="bloc etape__meta mono" data-ecriture="lettres"><span class="etape__date">2025 · 8 semaines</span><span class="etape__lieu">// Laboratoire LITIS, Université de Rouen</span></p>
+              <h3 class="bloc etape__titre" data-ecriture="scramble">Stage de recherche — Ergonomie d'interface</h3>
+              <p class="bloc etape__description" data-ecriture="machine">Stage de recherche consacré à l'amélioration de l'ergonomie d'une interface.</p>
+            </div>
+            <span class="annotation mono" aria-hidden="true">pb-10</span>
+            <span class="annotation annotation--gauche mono" aria-hidden="true">h-[192px]</span>
+          </li>
+          <li class="bande etape">
+            <div class="etape__contenu">
+              <p class="bloc etape__meta mono" data-ecriture="lettres"><span class="etape__date">2023 – 2026</span><span class="etape__lieu">// Elbeuf, Normandie</span></p>
+              <h3 class="bloc etape__titre" data-ecriture="scramble">BUT MMI</h3>
+              <p class="bloc etape__description" data-ecriture="machine">Spécialisation en développement web (front-end et back-end), gestion de projet et UX/UI design.</p>
+            </div>
+            <span class="annotation mono" aria-hidden="true">text-[13px]</span>
+            <span class="annotation annotation--gauche mono" aria-hidden="true">leading-5</span>
+          </li>
+          <li class="bande etape">
+            <div class="etape__contenu">
+              <p class="bloc etape__meta mono" data-ecriture="lettres"><span class="etape__date">2020 – 2023</span><span class="etape__lieu">// Lycée technologique Ferdinand Buisson, Elbeuf</span></p>
+              <h3 class="bloc etape__titre" data-ecriture="scramble">Bac STI2D</h3>
+              <p class="bloc etape__description" data-ecriture="machine">Sciences et Technologies de l'Industrie et du Développement Durable.</p>
+            </div>
+            <span class="annotation mono" aria-hidden="true">text-[22px]</span>
+            <span class="annotation annotation--gauche mono" aria-hidden="true">font-medium</span>
+          </li>
+        </ol>
+
+      </div>
+    </section>
+
+    <!-- Contact : formulaire (envoi par le logiciel de messagerie, pas de
+         serveur) et liens directs. -->
+    <section class="section contact" id="contact" aria-labelledby="contact-titre">
+      <div class="colonne">
+
+        <div class="bande">
+          <h2 class="titre-section" id="contact-titre" data-ecriture="scramble">Me contacter</h2>
+          <span class="annotation mono" aria-hidden="true">py-[112px]</span>
+          <span class="annotation annotation--gauche mono" aria-hidden="true">text-[44px]</span>
+        </div>
+
+        <div class="bande">
+          <div class="contact__grille">
+
+            <article class="carte carte--contact">
+              <form class="carte__contenu" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="31b4a12e-26d8-4a91-a920-5f48fd0544ca">
+                <input type="hidden" name="subject" value="Message depuis le portfolio">
+                <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" hidden>
+                <h3 class="bloc carte__titre" data-ecriture="scramble">Écrivez-moi</h3>
+                <div class="bloc champ">
+                  <label class="champ__libelle mono" for="champ-nom" data-ecriture="lettres">nom</label>
+                  <input class="champ__saisie" id="champ-nom" name="name" type="text" autocomplete="name" required>
+                </div>
+                <div class="bloc champ">
+                  <label class="champ__libelle mono" for="champ-email" data-ecriture="lettres">email</label>
+                  <input class="champ__saisie" id="champ-email" name="email" type="email" autocomplete="email" required>
+                </div>
+                <div class="bloc champ">
+                  <label class="champ__libelle mono" for="champ-message" data-ecriture="lettres">message</label>
+                  <textarea class="champ__saisie" id="champ-message" name="message" required></textarea>
+                </div>
+                <div class="bloc carte__actions">
+                  <button class="bouton" type="submit">Envoyer</button>
+                </div>
+                <p class="formulaire__statut mono" role="status"></p>
+              </form>
+            </article>
+
+            <article class="carte carte--contact">
+              <div class="carte__contenu">
+                <h3 class="bloc carte__titre" data-ecriture="scramble">Ou directement</h3>
+                <div class="bloc lien-direct">
+                  <span class="lien-direct__libelle mono" data-ecriture="lettres">email</span>
+                  <a href="mailto:basjardinrobin@gmail.com">basjardinrobin@gmail.com</a>
+                </div>
+                <div class="bloc lien-direct">
+                  <span class="lien-direct__libelle mono" data-ecriture="lettres">linkedin</span>
+                  <a href="https://www.linkedin.com/in/robin-basjardin-développeur" target="_blank" rel="noopener noreferrer">robin-basjardin</a>
+                </div>
+                <div class="bloc lien-direct">
+                  <span class="lien-direct__libelle mono" data-ecriture="lettres">github</span>
+                  <a href="https://github.com/basjardin" target="_blank" rel="noopener noreferrer">basjardin</a>
+                </div>
+                <div class="bloc contact__espace" aria-hidden="true"></div>
+                <div class="bloc carte__actions">
+                  <a class="bouton bouton--secondaire" href="assets/CV-Robin-Basjardin.pdf" download>Télécharger le CV (PDF)</a>
+                </div>
+              </div>
+            </article>
+
+          </div>
+          <span class="annotation mono" aria-hidden="true">basis-2/3</span>
+          <span class="annotation annotation--gauche mono" aria-hidden="true">gap-6</span>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pied mono">
+    <p>Robin Basjardin © 2026</p>
+    <ul class="pied__liens">
+      <li><span class="pied__inactif" role="link" aria-disabled="true">mentions légales</span></li>
+      <li><a href="https://github.com/basjardin" target="_blank" rel="noopener noreferrer">github</a></li>
+      <li><a href="https://www.linkedin.com/in/robin-basjardin-développeur" target="_blank" rel="noopener noreferrer">linkedin</a></li>
+    </ul>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js"></script>
+  <script src="js/commun.js"></script>
+  <script src="js/texte.js"></script>
+  <script src="js/annotations.js"></script>
+  <script src="js/sections.js"></script>
+  <script src="js/projets.js"></script>
+  <script src="js/formulaire.js"></script>
+  <script src="js/curseur.js"></script>
+</body>
+
+</html>

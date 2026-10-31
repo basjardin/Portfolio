@@ -1,0 +1,444 @@
+/* CV : même design que le site en thème clair (css/theme-clair.css) —
+   fond gris, cartes, rails et traits, titres hachurés, accent bleu.
+   Format A4, une page. PDF : voir cv/README.md. */
+
+:root {
+  --fond: hsl(220, 20%, 80%);
+  --surface: hsl(220, 20%, 85.9%);
+  --bordure-marquee: hsl(215.3, 25%, 60%);
+  --bordure-carte: hsl(217.2, 32.6%, 72%);
+  --texte: hsl(0, 0%, 0%);
+  --texte-secondaire: hsl(215, 20.2%, 34.9%);
+  --texte-discret: hsl(219.5, 17.9%, 41.6%);
+  --hachure-fort: hsl(0, 0%, 100%);
+  --hachure-moyen: hsl(0, 0%, 95.6%);
+  --trait: hsl(0, 0%, 70%);
+  --accent: hsl(228, 80%, 50%);
+
+  --tech-orange: hsl(27.6, 73.3%, 33.7%);
+  --tech-fond-orange: hsl(27.6, 60%, 94%);
+  --tech-bleu: hsl(208.6, 60.9%, 35.1%);
+  --tech-fond-bleu: hsl(208.6, 60%, 94%);
+  --tech-jaune: hsl(49.2, 59.4%, 36.7%);
+  --tech-fond-jaune: hsl(49.2, 60%, 92%);
+  --tech-violet: hsl(248.1, 56.6%, 28%);
+  --tech-fond-violet: hsl(248.1, 60%, 95%);
+  --tech-pourpre: hsl(273.3, 50.3%, 32.4%);
+  --tech-fond-pourpre: hsl(273.3, 50%, 95%);
+  --tech-gris: hsl(213.2, 20.4%, 36.5%);
+  --tech-fond-gris: hsl(213.2, 20%, 95%);
+  --tech-cyan: hsl(190.5, 60.9%, 35.1%);
+  --tech-fond-cyan: hsl(190.5, 60%, 93%);
+
+  --police-titre: "Funnel Display", system-ui, sans-serif;
+  --police-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-radius: 0;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--fond);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body {
+  color: var(--texte);
+  font-family: var(--police-titre);
+  font-size: 9pt;
+  font-weight: 300;
+  line-height: 1.45;
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.mono {
+  font-family: var(--police-mono);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* ---- Page et rails ---------------------------------------------- */
+
+.page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5mm;
+  width: 210mm;
+  height: 297mm;
+  margin: 0 auto;
+  padding: 7mm 8mm;
+  overflow: hidden;
+  background: var(--fond);
+}
+
+/* Rails verticaux : sur les bords du contenu, sur toute la hauteur. */
+.page::before,
+.page::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0.26mm;
+  background: var(--trait);
+}
+
+.page::before {
+  left: 8mm;
+}
+
+.page::after {
+  right: 8mm;
+}
+
+/* Trait au-dessus et au-dessous d'une bande, d'un rail à l'autre de sa
+   colonne ; celui de l'en-tête déborde jusqu'aux bords de la page. */
+.bande {
+  position: relative;
+}
+
+.bande::before,
+.bande::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0.26mm;
+  background: var(--trait);
+}
+
+.entete::before,
+.entete::after {
+  left: -8mm;
+  right: -8mm;
+}
+
+.bande::before {
+  top: 0;
+}
+
+.bande::after {
+  bottom: 0;
+}
+
+/* ---- Hachures : tuile de 4px, trait de 1px à 45° (css/hachures.css) ---- */
+
+.hachure {
+  --h: var(--hachure-moyen);
+  background-image: linear-gradient(
+    45deg,
+    var(--h) 0 0.5px,
+    transparent 0.5px 2.3284px,
+    var(--h) 2.3284px 3.3284px,
+    transparent 3.3284px 5.1568px,
+    var(--h) 5.1568px
+  );
+  background-size: 4px 4px;
+}
+
+.hachure--fort {
+  --h: var(--hachure-fort);
+}
+
+/* ---- En-tête ------------------------------------------------------ */
+
+.entete {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8mm;
+  /* Le titre hachuré part du rail de gauche. */
+  padding: 3mm 6mm 3mm 0;
+}
+
+.entete__nom {
+  padding-left: 6mm;
+  font-size: 30pt;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.046em;
+}
+
+.entete__poste {
+  margin-top: 2mm;
+  padding-left: 6mm;
+  font-size: 12pt;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.entete__infos {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1mm;
+  font-size: 7.5pt;
+  color: var(--texte-discret);
+}
+
+.entete__statut {
+  display: flex;
+  align-items: center;
+  gap: 2mm;
+}
+
+.entete__statut::before {
+  content: "";
+  width: 1.8mm;
+  height: 1.8mm;
+  background: var(--accent);
+}
+
+.entete__infos a {
+  color: var(--accent);
+}
+
+/* ---- Corps : colonne latérale et colonne principale --------------- */
+
+.corps {
+  display: grid;
+  grid-template-columns: 58mm 1fr;
+  gap: 6mm;
+  flex: 1;
+  min-height: 0;
+}
+
+.carte {
+  display: flex;
+  flex-direction: column;
+  gap: 7mm;
+  padding: 5mm;
+  border: 0.26mm solid var(--bordure-carte);
+  background: var(--surface);
+}
+
+.principal {
+  display: flex;
+  flex-direction: column;
+  gap: 5.6mm;
+  padding: 3mm 0;
+}
+
+/* ---- Titres de section --------------------------------------------- */
+
+.titre {
+  display: block;
+  margin-bottom: 2mm;
+  padding: 1.6mm 2mm;
+  font-size: 9.5pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--texte);
+}
+
+.carte .titre {
+  margin-inline: -5mm;
+  padding-inline: 5mm;
+}
+
+/* Colonne principale : le titre traverse l'espace et touche la carte. */
+.principal .titre {
+  margin-left: -6mm;
+  padding-left: 8mm;
+}
+
+.principal .titre::before,
+.principal .titre::after {
+  left: 0;
+}
+
+
+/* ---- Colonne latérale ---------------------------------------------- */
+
+.photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 3.6;
+  object-fit: cover;
+  object-position: 50% 30%;
+  border: 0.26mm solid var(--bordure-marquee);
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2mm;
+  font-size: 8.6pt;
+  overflow-wrap: anywhere;
+}
+
+.contact li {
+  display: flex;
+  align-items: baseline;
+  gap: 2mm;
+}
+
+.contact li::before {
+  content: "";
+  flex: none;
+  width: 1.4mm;
+  height: 1.4mm;
+  background: var(--accent);
+  transform: translateY(-0.2mm);
+}
+
+.groupe + .groupe {
+  margin-top: 2.4mm;
+}
+
+.groupe__nom {
+  margin-bottom: 1.2mm;
+  font-size: 7pt;
+  color: var(--texte-discret);
+}
+
+.puces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2mm;
+}
+
+.puce {
+  display: inline-flex;
+  align-items: center;
+  height: 5mm;
+  padding: 0 2.4mm;
+  font-size: 7pt;
+  line-height: 1;
+}
+
+.puce--orange { color: var(--tech-orange); background: var(--tech-fond-orange); }
+.puce--bleu { color: var(--tech-bleu); background: var(--tech-fond-bleu); }
+.puce--jaune { color: var(--tech-jaune); background: var(--tech-fond-jaune); }
+.puce--violet { color: var(--tech-violet); background: var(--tech-fond-violet); }
+.puce--pourpre { color: var(--tech-pourpre); background: var(--tech-fond-pourpre); }
+.puce--gris { color: var(--tech-gris); background: var(--tech-fond-gris); }
+.puce--cyan { color: var(--tech-cyan); background: var(--tech-fond-cyan); }
+
+.langues {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8mm;
+  font-size: 8.6pt;
+}
+
+.langues small {
+  display: block;
+  font-size: 7pt;
+  color: var(--texte-discret);
+}
+
+/* ---- Colonne principale -------------------------------------------- */
+
+.profil,
+.entree,
+.interets {
+  padding-inline: 2mm;
+}
+
+.profil {
+  font-size: 9.6pt;
+  line-height: 1.5;
+  color: var(--texte-secondaire);
+}
+
+.entree + .entree {
+  margin-top: 3.6mm;
+}
+
+.entree__tete {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4mm;
+}
+
+.entree__titre {
+  font-size: 10.4pt;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.entree__date {
+  flex: none;
+  font-size: 7pt;
+  color: var(--accent);
+}
+
+.entree__lieu {
+  font-size: 7.8pt;
+  color: var(--texte-discret);
+}
+
+.entree__texte {
+  margin-top: 1mm;
+  font-size: 9pt;
+  color: var(--texte-secondaire);
+}
+
+.entree__liens {
+  font-size: 7.4pt;
+  color: var(--texte-discret);
+}
+
+.entree__liens span {
+  color: var(--accent);
+}
+
+.interets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2mm 6mm;
+  font-size: 9pt;
+  color: var(--texte-secondaire);
+}
+
+.interets li::before {
+  content: "";
+  display: inline-block;
+  width: 1.4mm;
+  height: 1.4mm;
+  margin-right: 2mm;
+  background: var(--accent);
+  vertical-align: 0.1mm;
+}
+
+@media screen {
+  body {
+    background: hsl(220, 10%, 40%);
+    padding: 8mm 0;
+  }
+
+  .page {
+    box-shadow: 0 0 0 1px hsl(0, 0%, 0%, 0.2);
+  }
+}

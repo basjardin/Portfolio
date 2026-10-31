@@ -1,92 +1,51 @@
-# 📌 Portfolio utilisé pour ma recherche d'un premier emploi de développeur web
+# Portfolio — Robin Basjardin
 
----
+Portfolio utilisé pour ma recherche d'un premier poste de développeur web.
 
-# 🚀 Mon Portfolio Personnel
+Site en ligne : https://basjardin.github.io/Portfolio/
 
-Bienvenue sur le dépôt GitHub de mon portfolio en ligne ! Ce site présente mon parcours, mes projets et mes compétences techniques en tant que développeur web.
+## À propos
 
-🔗 **Lien vers le site en direct :** [https://basjardin.github.io/Portfolio/](https://basjardin.github.io/Portfolio/)
+Je suis Robin Basjardin, développeur web (front-end et back-end), diplômé du BUT MMI (2023–2026) et certifié Opquast (891/1000). Basé à Elbeuf, en Normandie.
 
----
+## Le site
 
-## 👨‍💻 À propos de moi
+- Site statique : HTML, CSS et JavaScript, sans étape de build.
+- Design « blueprint » : rails, traits, titres hachurés et annotations.
+- Thème sombre et thème clair (choix du système, bouton de bascule).
+- Animations avec GSAP (SplitText, ScrambleTextPlugin), chargé depuis un CDN.
+- Formulaire de contact via Web3Forms.
+- Adapté au mobile.
 
-Salut ! Je suis **Robin Basjardin**, développeur web front-end et back-end, diplômé du **BUT MMI** (2023‑2026) et certifié **Opquast** (891/1000, niveau Avancé). Basé à Elbeuf, en Normandie.
+## Structure
 
-Ce portfolio est une vitrine de mon travail et de mon évolution. J'aime créer des interfaces fluides, modernes et centrées sur l'utilisateur.
+```
+index.html      page unique
+css/            styles, un fichier par partie (base, structure, hachures, cartes…)
+js/             scripts, un fichier par comportement (thème, texte, projets, formulaire…)
+assets/         icône, CV en PDF, images
+cv/             sources du CV (HTML, CSS) et PDF généré
+```
 
-## 🛠️ Technologies utilisées
+## Lancer en local
 
-Pour ce projet, j'ai utilisé les technologies suivantes :
+Aucune installation. Depuis le dossier du projet :
 
-* **Framework :** Next.js 15 (App Router) + React 19
-* **Langages :** TypeScript, SCSS
-* **Styles :** Tailwind CSS 4, SCSS
-* **Composants :** shadcn/ui, Embla Carousel, Motion
-* **Déploiement :** GitHub Pages (export statique via GitHub Actions)
-* **Outils :** VS Code, Git
+```bash
+python -m http.server 4321
+```
 
-## ✨ Fonctionnalités
+Puis ouvrir http://localhost:4321/.
 
-- 📱 **Design Responsive :** Adapté à tous les écrans (Mobile, Tablette, Desktop).
-- 🌓 **Thème clair / sombre :** Bascule automatique ou manuelle.
-- 📁 **Showcase de Projets :** Carrousels présentant mes réalisations avec liens vers les démos et le code source.
-- 📄 **Mon Parcours :** Expériences professionnelles, formation et certification.
-- 🧰 **Compétences :** Technologies et outils maîtrisés, avec description au survol.
-- 📩 **Contact :** Email, LinkedIn et GitHub.
+## CV
 
-## 📸 Aperçu du site
+Le CV est écrit dans `cv/cv.html` et exporté en PDF avec Chrome. Le PDF publié sur le site est `assets/CV-Robin-Basjardin.pdf` : il faut le recopier après chaque modification du CV.
 
-<img width="1725" height="951" alt="Aperçu du Portfolio" src="https://github.com/user-attachments/assets/e4d22884-0716-40c5-859e-49c661d8ac32" />
+## Déploiement
 
----
+Chaque push sur `main` publie le site sur GitHub Pages grâce au workflow `.github/workflows/deploy.yml`.
+Réglage requis : Settings > Pages > Source = « GitHub Actions ».
 
-## 🚀 Installation locale
+## Contact
 
-Si vous souhaitez explorer le code localement, suivez ces étapes :
-
-1.  **Cloner le dépôt :**
-    ```bash
-    git clone https://github.com/basjardin/Portfolio.git
-    ```
-2.  **Naviguer dans le dossier :**
-    ```bash
-    cd Portfolio
-    ```
-3.  **Installer les dépendances :**
-    ```bash
-    npm install
-    ```
-4.  **Lancer le serveur de développement :**
-    ```bash
-    npm run dev
-    ```
-    Le site est ensuite disponible sur [http://localhost:3000](http://localhost:3000).
-
-> ℹ️ En production, le site est exporté en statique avec un `basePath` `/Portfolio` (voir `next.config.ts`) et déployé automatiquement sur GitHub Pages à chaque push sur `main`.
-
----
-
-## 🗂️ Structure du contenu
-
-Le contenu du site est centralisé dans le dossier `data/` :
-
-| Fichier | Contenu |
-| --- | --- |
-| `data/competences.ts` | Les technologies affichées dans la section « Compétences » |
-| `data/parcours.ts` | Expériences professionnelles, formation et certification |
-| `data/projects.ts` | Les projets affichés dans les carrousels |
-
----
-
-## 📬 Me contacter
-
-Je suis toujours ouvert aux opportunités et aux collaborations !
-
-- **LinkedIn :** [robin-basjardin-développeur](https://www.linkedin.com/in/robin-basjardin-développeur)
-- **Email :** [basjardinrobin@gmail.com](mailto:basjardinrobin@gmail.com)
-- **Portfolio :** [https://basjardin.github.io/Portfolio/](https://basjardin.github.io/Portfolio/)
-
----
-⭐ Si ce projet vous a plu, n'hésitez pas à laisser une étoile !
+basjardinrobin@gmail.com

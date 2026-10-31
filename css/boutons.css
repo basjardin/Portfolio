@@ -1,0 +1,85 @@
+/* Boutons. Principal : fond plein et bordure couleur du texte. Secondaire :
+   contour et hachures (hachures.css). Apparition : animation.css. */
+
+.bouton {
+  position: relative;
+  /* Au-dessus des traits (rails et bandes) : boutons et équerres les recouvrent. */
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: 0 24px;
+  border: 1px solid var(--texte);
+  background: var(--accent);
+  color: var(--texte-sur-accent);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.bouton:not(.bouton--inactif):hover {
+  background: var(--accent-survol);
+}
+
+.bouton:focus-visible {
+  outline: 2px solid var(--accent-survol);
+  outline-offset: 3px;
+}
+
+/* ---- Principal : équerres d'apparition ---------------------- */
+
+/* Quatre coins en L dessinés par un seul pseudo-élément (8 traits de
+   10px × 1px), collés aux coins du bouton. Invisibles au repos : ils
+   n'existent que pendant leur animation, puis la bordure prend le relais. */
+.bouton:not(.bouton--secondaire)::before {
+  --e: linear-gradient(var(--texte), var(--texte));
+  content: "";
+  position: absolute;
+  inset: -1px;
+  opacity: 0;
+  pointer-events: none;
+  background:
+    var(--e) top left / 10px 1px no-repeat,
+    var(--e) top left / 1px 10px no-repeat,
+    var(--e) top right / 10px 1px no-repeat,
+    var(--e) top right / 1px 10px no-repeat,
+    var(--e) bottom left / 10px 1px no-repeat,
+    var(--e) bottom left / 1px 10px no-repeat,
+    var(--e) bottom right / 10px 1px no-repeat,
+    var(--e) bottom right / 1px 10px no-repeat;
+}
+
+/* ---- Secondaire ---------------------------------------------- */
+
+.bouton--secondaire {
+  background: transparent;
+  border-color: var(--bordure-marquee);
+  color: var(--texte);
+  font-weight: 500;
+}
+
+.bouton--secondaire:not(.bouton--inactif):hover {
+  /* background-color, pas background : le raccourci effacerait les hachures. */
+  background-color: var(--hachure-fort);
+  border-color: var(--texte-discret);
+}
+
+/* ---- Inactif ------------------------------------------------- */
+
+/* Lien sans adresse (un <span>) : le bouton garde sa place mais ne réagit
+   à rien, ni clic ni survol. */
+.bouton--inactif {
+  opacity: 0.4;
+  cursor: default;
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .bouton {
+    width: 100%;
+  }
+}

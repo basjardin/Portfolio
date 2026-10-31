@@ -1,0 +1,146 @@
+/* En-tête fixe : logo, liens d'ancre, bouton CV. Pied de page : pied.css.
+   Rails verticaux : traits.css. --rail : structure.css. */
+
+:root {
+  /* Bouton de 44px, 22px au-dessus et en dessous, bordure de 1px. */
+  --hauteur-entete: 89px;
+}
+
+.entete {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: var(--hauteur-entete);
+  /* Contenu à 24px des rails. */
+  padding-inline: calc(var(--rail) + 24px);
+  background: var(--surface);
+  border-bottom: 1px solid var(--trait);
+}
+
+.entete__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.017em;
+  color: var(--texte);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Repère : le carré accent, comme les marqueurs du blueprint. */
+.entete__logo::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+}
+
+.entete__liens {
+  display: flex;
+  gap: 36px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.entete__liens a {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 21px;
+  color: var(--texte-secondaire);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+
+.entete__liens a:hover,
+.entete__liens a:focus-visible {
+  color: var(--texte);
+}
+
+.entete__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.entete .bouton {
+  min-height: 44px;
+  white-space: nowrap;
+}
+
+/* Bascule de thème : carré de 44px, contour comme le bouton secondaire. */
+.theme-bouton {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--bordure-marquee);
+  background: transparent;
+  color: var(--texte-secondaire);
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 22px;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.theme-bouton:hover {
+  color: var(--texte);
+  border-color: var(--texte-secondaire);
+}
+
+.theme-bouton:focus-visible {
+  outline: 2px solid var(--accent-survol);
+  outline-offset: 3px;
+}
+
+/* Les ancres ne passent pas sous l'en-tête. */
+.section,
+.accueil {
+  scroll-margin-top: var(--hauteur-entete);
+}
+
+@media (max-width: 1100px) {
+  .entete__liens {
+    gap: 24px;
+  }
+}
+
+/* Mobile : logo et bouton, les liens disparaissent faute de place. */
+@media (max-width: 900px) {
+  .entete__liens {
+    display: none;
+  }
+
+  /* Contenu plus près des rails : 24px de marge ne laissent pas la place. */
+  .entete {
+    padding-inline: calc(var(--rail) + 12px);
+    gap: 8px;
+  }
+
+  .entete__logo {
+    font-size: 16px;
+  }
+
+  /* « Télécharger le CV » devient « CV ». */
+  .entete__cv-long {
+    display: none;
+  }
+
+  .entete__actions {
+    gap: 8px;
+  }
+
+  .entete .bouton {
+    width: auto;
+    padding-inline: 10px;
+    font-size: 13px;
+  }
+}

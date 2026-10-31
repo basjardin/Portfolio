@@ -1,6 +1,4 @@
-node_modules
-.next
-out
-*.tsbuildinfo
-.env*.local
 .DS_Store
+Thumbs.db
+.claude/
+_site/

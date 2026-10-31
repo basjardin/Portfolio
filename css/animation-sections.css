@@ -1,0 +1,142 @@
+/* Animation des sections de contenu (projets, compétences, parcours). Mêmes
+   mouvements que l'accueil (animation.css : traits, hachures, annotations,
+   boutons) mais joués au défilement et environ 2,5 fois plus vite : on ne doit
+   pas attendre pour lire. js/sections.js ajoute `en-vue` à chaque bande quand
+   elle entre dans l'écran.
+   Avant cela, tout reste en pause sur l'image de départ.
+     0s     les traits se tracent (0.4s)
+     0.15s  les hachures se dévoilent (0.3s)
+     0.3s   les annotations apparaissent
+     0.45s  le texte s'écrit (js/sections.js, DEPART)
+     0.5s   les boutons apparaissent
+   Les keyframes sont celles de animation.css, les durées et délais changent.
+   Pour la couper : retirer ce fichier de index.html (et sections.js). */
+
+/* ---- En attente ---------------------------------------------- */
+
+/* `pret` : posé par le script. Sans lui (script absent, mouvement réduit),
+   rien n'est caché. */
+.section.pret .bande:not(.en-vue),
+.section.pret .bande:not(.en-vue) *,
+.section.pret .bande:not(.en-vue)::before,
+.section.pret .bande:not(.en-vue)::after,
+.section.pret .bande:not(.en-vue) *::before,
+.section.pret .bande:not(.en-vue) *::after {
+  animation-play-state: paused;
+}
+
+/* Les textes écrits par le script (`data-ecriture`) restent invisibles
+   jusqu'à leur tour. */
+.section.pret .bande:not(.en-vue) [data-ecriture] {
+  color: transparent;
+}
+
+/* ---- Traits de la page --------------------------------------- */
+
+.section .colonne::before,
+.section .colonne::after {
+  animation: tracer-vertical 0.4s ease-in-out both;
+}
+
+.section .bande::before,
+.section .bande::after {
+  animation: tracer-horizontal 0.4s ease-in-out both;
+}
+
+/* ---- Hachures ------------------------------------------------ */
+
+.section .bande:has(> .titre-section),
+.section .bande:has(> .projets__sous-titre),
+.section .carte__titre,
+.section .carte__description,
+.section .etape__titre {
+  animation: devoiler 0.3s linear 0.15s both;
+}
+
+/* ---- Annotations --------------------------------------------- */
+
+.section .bande > .annotation {
+  animation: apparaitre 0.25s ease-in-out 0.3s both;
+}
+
+.section .bande > .annotation--gauche {
+  animation-delay: 0.38s;
+}
+
+/* ---- La carte et ses traits ---------------------------------- */
+
+.carte {
+  animation: apparaitre 0.2s ease-in-out both;
+}
+
+.carte__contenu::before {
+  transform-origin: top;
+}
+
+.carte__contenu::after {
+  transform-origin: bottom;
+}
+
+.carte__contenu::before,
+.carte__contenu::after {
+  animation: tracer-vertical 0.4s ease-in-out 0.05s both;
+}
+
+.bloc::before {
+  transform-origin: left;
+}
+
+.bloc::after {
+  transform-origin: right;
+}
+
+.bloc::before,
+.bloc::after {
+  animation: tracer-horizontal 0.4s ease-in-out 0.05s both;
+}
+
+/* ---- Parcours : repère sur le rail et trait du contenu ------- */
+
+.etape__date::before {
+  animation: apparaitre 0.25s ease-in-out 0.3s both;
+}
+
+.etape__contenu::before {
+  transform-origin: top;
+  animation: tracer-vertical 0.4s ease-in-out 0.05s both;
+}
+
+/* ---- Visuel et pastilles ------------------------------------- */
+
+/* La croix apparaît avec les hachures ; le texte du visuel s'écrit (js). */
+.carte__visuel::before {
+  animation: apparaitre 0.3s ease-in-out 0.3s both;
+}
+
+.puce {
+  animation: apparaitre 0.25s ease-in-out 0.45s both;
+}
+
+.puce:nth-child(2) { animation-delay: 0.5s; }
+.puce:nth-child(3) { animation-delay: 0.55s; }
+.puce:nth-child(n + 4) { animation-delay: 0.6s; }
+
+/* ---- Boutons ------------------------------------------------- */
+
+/* Mêmes étapes que l'accueil (animation.css, 3b). */
+.section .bouton:not(.bouton--secondaire)::before {
+  animation: equerres 0.35s ease-out 0.5s backwards;
+}
+
+.section .bouton:not(.bouton--secondaire) {
+  animation: remplir 0.2s linear 0.7s backwards;
+}
+
+.section .bouton--secondaire {
+  animation:
+    sous-les-traits 1.1s,
+    devoiler 0.3s linear 0.6s backwards,
+    remplir 0.2s linear 0.85s backwards;
+}
+
+/* Mouvement réduit : base.css coupe toutes les animations. */

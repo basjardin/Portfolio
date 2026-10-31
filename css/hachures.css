@@ -1,0 +1,99 @@
+/* Hachures de fond. Couleur selon l'importance : fort (titres),
+   moyen (textes et bouton secondaire). Les cibles sont
+   choisies ici avec `:has()`, sans classe dans le HTML.
+   Pour tout couper : <body class="sans-hachures"> */
+
+:root {
+  --hachure-fort: hsl(217.7, 31%, 44.3%);
+  --hachure-moyen: hsl(218.6, 32.6%, 35.5%);
+}
+
+/* ---- Le motif ---------------------------------------------- */
+
+/* Tuile carrée de 4px, répétée, trait de 1px à 45°. Pas de
+   repeating-linear-gradient : sa période à 45° n'est pas entière
+   et les traits dérivent. Diagonale = 4 × √2 ≈ 5.6568px : un trait
+   au milieu, un coupé sur les coins. Un cache couleur du fond, deux
+   fois plus grand que l'élément, est déplacé dans animation.css :
+   la trame se dévoile en diagonale, du coin bas gauche au coin haut
+   droit. Même angle (45deg) que les hachures : le bord du cache est
+   parallèle aux traits, donc ils apparaissent un par un. Position
+   finale : cache hors de l'élément, trame visible. */
+
+.bande:has(> .accueil__titre),
+.bande:has(> .accueil__phrase),
+.bande:has(> .titre-section),
+.bande:has(> .projets__sous-titre),
+.carte__titre,
+.carte__description,
+.etape__titre,
+.bouton--secondaire {
+  /* Le cache a la couleur du fond derrière : `--cache` pour un fond autre
+     que celui de la page (le contenu des cartes). */
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--cache, var(--fond)) 50%),
+    linear-gradient(
+      45deg,
+      var(--h) 0 0.5px,
+      transparent 0.5px 2.3284px,
+      var(--h) 2.3284px 3.3284px,
+      transparent 3.3284px 5.1568px,
+      var(--h) 5.1568px
+    );
+  background-size:
+    200% 200%,
+    4px 4px;
+  background-position:
+    0 100%,
+    0 0;
+  background-repeat: no-repeat, repeat;
+  /* Le bouton a une bordure de 1px : sans ça, le cache ne couvre que
+     l'intérieur et les hachures restent visibles sous la bordure. */
+  background-origin: border-box;
+}
+
+/* Le texte ne touche pas le bord de sa trame. Le bouton secondaire a déjà
+   son padding. */
+.accueil__titre,
+.accueil__phrase,
+.titre-section,
+.projets__sous-titre,
+.carte__titre,
+.carte__description,
+.etape__titre {
+  padding: 4px;
+}
+
+/* ---- Qui reçoit quelle couleur ----------------------------- */
+
+.bande:has(> .accueil__titre),
+.bande:has(> .titre-section),
+.bande:has(> .projets__sous-titre),
+.carte__titre,
+.etape__titre {
+  --h: var(--hachure-fort);
+}
+
+.bande:has(> .accueil__phrase),
+.carte__description,
+.bouton--secondaire {
+  --h: var(--hachure-moyen);
+}
+
+/* Survol : hachures de la couleur de la bordure au survol. */
+.bouton--secondaire:not(.bouton--inactif):hover {
+  --h: var(--texte-discret);
+}
+
+/* ---- Interrupteur ------------------------------------------ */
+
+.sans-hachures .bande:has(> .accueil__titre),
+.sans-hachures .bande:has(> .accueil__phrase),
+.sans-hachures .bande:has(> .titre-section),
+.sans-hachures .bande:has(> .projets__sous-titre),
+.sans-hachures .carte__titre,
+.sans-hachures .carte__description,
+.sans-hachures .etape__titre,
+.sans-hachures .bouton--secondaire {
+  background-image: none;
+}
